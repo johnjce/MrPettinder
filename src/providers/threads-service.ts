@@ -21,9 +21,9 @@ export class ThreadsService {
   save(threads: any): Observable<any> {
     let result: Observable<Object>;
     if (threads['thread_id']) {
-      result = this.http.put(threads.threads['thread_id'], threads);
+      result = this.http.put(threads.threads['id'], threads);
     } else {
-      result = this.http.post(this.THREADS_API, threads)
+      result = this.http.post(threads);
     }
     return result.catch(error => Observable.throw(error));
   }

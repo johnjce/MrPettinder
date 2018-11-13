@@ -28,7 +28,7 @@ export class ThreadsModalPage {
   }
 
   save(form: NgForm) {
-    let update: boolean = form['href'];
+    let update: boolean = form['id'];
     this.threadsService.save(form).subscribe(result => {
       let toast = this.toastCtrl.create({
         message: 'Threads "' + form.name + '" ' + ((update) ? 'updated' : 'added') + '.',
