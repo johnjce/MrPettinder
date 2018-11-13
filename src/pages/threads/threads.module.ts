@@ -3,11 +3,12 @@ import { IonicPageModule } from 'ionic-angular';
 import { ThreadsPage } from './threads';
 import { ThreadsService } from '../../providers/threads-service';
 import { ThreadsModalPage } from './threads-modal';
-
+import {ComponenteEduComponent} from '../../components/componente-edu/componente-edu'
 @NgModule({
   declarations: [
     ThreadsPage,
-    ThreadsModalPage
+    ThreadsModalPage,
+    ComponenteEduComponent,
   ],
   imports: [
     IonicPageModule.forChild(ThreadsPage),
@@ -16,7 +17,9 @@ import { ThreadsModalPage } from './threads-modal';
     ThreadsService
   ],
   entryComponents: [
-    ThreadsModalPage
+    ThreadsModalPage,
+    ComponenteEduComponent,
+
   ]
 })
 export class ThreadsPageModule {}

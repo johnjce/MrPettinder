@@ -24,22 +24,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ThreadsService = (function () {
     function ThreadsService(http) {
         this.http = http;
-        this.API = 'http://localhost:8080';
+        this.API = 'https://379f5373.ngrok.io';
         this.THREADS_API = this.API + '/threads';
+        this.token = 'dXNlcjpwYXNzd29yZA==';
+        this.httpOptions = {
+            headers: new __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["c" /* HttpHeaders */]({
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
+                'Accept': 'application/json',
+                Authorization: 'Basic ' + token
+            })
+        };
     }
     ThreadsService.prototype.getGoodThreadss = function () {
-        return this.http.get(this.API + '/threads');
+        return this.http.get(this.API + '/threads', this.httpOptions);
     };
     ThreadsService.prototype.get = function (id) {
         return this.http.get(this.THREADS_API + '/' + id);
     };
     ThreadsService.prototype.save = function (threads) {
         var result;
-        if (threads['thread_id']) {
-            result = this.http.put(threads.threads['id'], threads);
+        if (threads) {
+            result = this.http.put(this.THREADS_API, threads.threads.id, threads);
         }
         else {
-            result = this.http.post(threads);
+            result = this.http.post(this.THREADS_API, threads);
         }
         return result.catch(function (error) { return __WEBPACK_IMPORTED_MODULE_1_rxjs__["Observable"].throw(error); });
     };
@@ -48,10 +58,9 @@ var ThreadsService = (function () {
     };
     ThreadsService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
     ], ThreadsService);
     return ThreadsService;
-    var _a;
 }());
 
 //# sourceMappingURL=threads-service.js.map
@@ -110,12 +119,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__threads__ = __webpack_require__(208);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_threads_service__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__threads_modal__ = __webpack_require__(303);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_componente_edu_componente_edu__ = __webpack_require__(678);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -128,7 +139,8 @@ var ThreadsPageModule = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_2__threads__["a" /* ThreadsPage */],
-                __WEBPACK_IMPORTED_MODULE_4__threads_modal__["a" /* ThreadsModalPage */]
+                __WEBPACK_IMPORTED_MODULE_4__threads_modal__["a" /* ThreadsModalPage */],
+                __WEBPACK_IMPORTED_MODULE_5__components_componente_edu_componente_edu__["a" /* ComponenteEduComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__threads__["a" /* ThreadsPage */]),
@@ -137,7 +149,8 @@ var ThreadsPageModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_3__providers_threads_service__["a" /* ThreadsService */]
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_4__threads_modal__["a" /* ThreadsModalPage */]
+                __WEBPACK_IMPORTED_MODULE_4__threads_modal__["a" /* ThreadsModalPage */],
+                __WEBPACK_IMPORTED_MODULE_5__components_componente_edu_componente_edu__["a" /* ComponenteEduComponent */],
             ]
         })
     ], ThreadsPageModule);
@@ -177,6 +190,13 @@ var ThreadsPage = (function () {
         this.threadsService = threadsService;
         this.modalCtrl = modalCtrl;
         this.toastCtrl = toastCtrl;
+        this.VariabledeEduConTodainfromacion = [
+            { "id": 1, "titulo": "pepito", "descripcion": "blablabla", "endTime": "25 Julio 2018" },
+            { "id": 2, "titulo": "pepito1", "descripcion": "blabla12134bla", "endTime": "25 Julio 2018" },
+            { "id": 3, "titulo": "pepito2", "descripcion": "blablabdadala", "endTime": "25 Julio 2018" },
+            { "id": 14, "titulo": "pepit3o", "descripcion": "blablarakjybla", "endTime": "25 Julio 2018" },
+            { "id": 156, "titulo": "pepito4", "descripcion": "blabladadabla", "endTime": "25 Julio 2018" }
+        ];
     }
     ThreadsPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -209,13 +229,12 @@ var ThreadsPage = (function () {
     };
     ThreadsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-threads',template:/*ion-inline-start:"C:\Users\jhonts\Desktop\projects\spring-boot-ionic-example\ionic-threads\src\pages\threads\threads.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Good Threads</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="openModal()" color="primary">\n        <ion-icon name="add-circle"></ion-icon>\n        <ion-icon name="beer"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-item-sliding *ngFor="let threads of threadss">\n      <ion-item (click)="openModal({id: threads.id})">\n        <ion-avatar item-left>\n          <img src="../../assets/icon/favicon.ico">\n        </ion-avatar>\n        <h2>{{threads.title}}</h2>\n        <p>{{threads.description}}</p>\n      </ion-item>\n      <ion-item-options>\n        <button ion-button color="danger" (click)="remove(threads)">\n          <ion-icon name="trash"></ion-icon> Delete\n        </button>\n      </ion-item-options>\n    </ion-item-sliding>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\Users\jhonts\Desktop\projects\spring-boot-ionic-example\ionic-threads\src\pages\threads\threads.html"*/,
+            selector: 'page-threads',template:/*ion-inline-start:"C:\Users\jhonts\Desktop\projects\spring-boot-ionic-example\ionic-threads\src\pages\threads\threads.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Good Threads</ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="openModal()" color="primary">\n\n        <ion-icon name="add-circle"></ion-icon>\n\n        <ion-icon name="beer"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <h2>Hola</h2>\n\n  <div >\n      <componente-edu *ngFor="let i of VariabledeEduConTodainfromacion" [customTitle]="i" ></componente-edu>\n  </div>\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let threads of threadss">\n\n      <ion-item (click)="openModal({id: threads.id})">\n\n        <ion-avatar item-left>\n\n          <img src="../../assets/icon/favicon.ico">\n\n        </ion-avatar>\n\n        <h2>{{threads.title}}</h2>\n\n        <p>{{threads.description}}</p>\n\n      </ion-item>\n\n      <ion-item-options>\n\n        <button ion-button color="danger" (click)="remove(threads)">\n\n          <ion-icon name="trash"></ion-icon> Delete\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\jhonts\Desktop\projects\spring-boot-ionic-example\ionic-threads\src\pages\threads\threads.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_threads_service__["a" /* ThreadsService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_threads_service__["a" /* ThreadsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_threads_service__["a" /* ThreadsService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ToastController */]) === "function" && _e || Object])
     ], ThreadsPage);
     return ThreadsPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=threads.js.map
@@ -285,10 +304,13 @@ var ThreadsModalPage = (function () {
     ThreadsModalPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\jhonts\Desktop\projects\spring-boot-ionic-example\ionic-threads\src\pages\threads\threads-modal.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      {{threads.id ? \'Thread Details\' : \'Add Thread\'}}\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios,core">Cancel</span>\n        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n<ion-content padding>\n  <form #threadsForm="ngForm" (ngSubmit)="save(threadsForm.value)">\n      <input type="hidden" name="id" [(ngModel)]="threads.id"/>\n    <ion-row>\n      <ion-col>\n        <ion-list inset>\n          <ion-item>\n            <ion-input placeholder="Title thread" name="title" type="text"\n                       required [(ngModel)]="threads.title" #name></ion-input>\n          </ion-item>\n        </ion-list>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col>\n        <ion-list inset>\n          <ion-item>\n            <ion-input placeholder="Description" name="decription" type="text"\n                       required [(ngModel)]="threads.description" ></ion-input>\n          </ion-item>\n        </ion-list>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col>\n        <ion-list inset>\n          <ion-item>\n            <ion-input placeholder="Creation date" name="creation_date" type="date"\n                       required [(ngModel)]="threads.creationDate" ></ion-input>\n          </ion-item>\n        </ion-list>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col>\n        <ion-list inset>\n          <ion-item>\n            <ion-input placeholder="State" name="open" type="text"\n                       required [(ngModel)]="threads.open" ></ion-input>\n          </ion-item>\n        </ion-list>\n      </ion-col>\n    </ion-row>\n\n    <ion-row>\n      <ion-col>\n        <div *ngIf="error" class="alert alert-danger">{{error}}</div>\n        <button ion-button color="primary" full type="submit"\n                [disabled]="!threadsForm.form.valid">Save</button>\n      </ion-col>\n    </ion-row>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\jhonts\Desktop\projects\spring-boot-ionic-example\ionic-threads\src\pages\threads\threads-modal.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__providers_threads_service__["a" /* ThreadsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_threads_service__["a" /* ThreadsService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* ToastController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__providers_threads_service__["a" /* ThreadsService */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]])
     ], ThreadsModalPage);
     return ThreadsModalPage;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=threads-modal.js.map
@@ -537,6 +559,50 @@ var MyApp = (function () {
 }());
 
 //# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 678:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponenteEduComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/**
+ * Generated class for the ComponenteEduComponent component.
+ *
+ * See https://angular.io/api/core/Component for more info on Angular
+ * Components.
+ */
+var ComponenteEduComponent = (function () {
+    function ComponenteEduComponent() {
+        console.log('Hello ComponenteEduComponent Component');
+        this.text = 'Hello World';
+    }
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", String)
+    ], ComponenteEduComponent.prototype, "customTitle", void 0);
+    ComponenteEduComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'componente-edu',template:/*ion-inline-start:"C:\Users\jhonts\Desktop\projects\spring-boot-ionic-example\ionic-threads\src\components\componente-edu\componente-edu.html"*/'\n\n<ion-card style="height: auto !important;width: 200px;">\n\n\n\n  <ion-item>\n\n    <ion-avatar item-start>\n\n      <img src="https://source.unsplash.com/50x50/">\n\n    </ion-avatar>\n\n    <h2> {{customTitle.titulo}} </h2>\n\n    <p>{{customTitle.endTime}} </p>\n\n  </ion-item>\n\n\n\n  <img src="https://source.unsplash.com/50x50/">\n\n\n\n  <ion-card-content>\n\n    <p> {{customTitle.descripcion}}\n\n    </p>\n\n  </ion-card-content>\n\n\n\n  <ion-row>\n\n    <ion-col>\n\n      <button ion-button icon-start clear small>\n\n        <ion-icon name="thumbs-up"></ion-icon>\n\n        <div>12 Likes</div>\n\n      </button>\n\n    </ion-col>\n\n    <ion-col>\n\n      <button ion-button icon-start clear small>\n\n        <ion-icon name="text"></ion-icon>\n\n        <div>4 Comments</div>\n\n      </button>\n\n    </ion-col>\n\n    <ion-col center text-center>\n\n      <ion-note>\n\n        11h ago\n\n      </ion-note>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n</ion-card>\n\n\n\n'/*ion-inline-end:"C:\Users\jhonts\Desktop\projects\spring-boot-ionic-example\ionic-threads\src\components\componente-edu\componente-edu.html"*/
+        }),
+        __metadata("design:paramtypes", [])
+    ], ComponenteEduComponent);
+    return ComponenteEduComponent;
+}());
+
+//# sourceMappingURL=componente-edu.js.map
 
 /***/ })
 
