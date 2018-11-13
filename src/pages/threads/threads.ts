@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController, NavParams, ToastController } from 'ionic-angular';
 import { ThreadsService } from '../../providers/threads-service';
 import { ThreadsModalPage } from './threads-modal';
-
+import {ComponenteEduComponent} from '../../components/componente-edu/componente-edu'
 @IonicPage()
 @Component({
   selector: 'page-threads',
@@ -10,6 +10,16 @@ import { ThreadsModalPage } from './threads-modal';
 })
 export class ThreadsPage {
   private threadss: Array<any>;
+
+
+
+  VariabledeEduConTodainfromacion:any=[
+    {"id":1, "titulo":"pepito", "descripcion": "blablabla", "endTime":"25 Julio 2018"},
+    {"id":2, "titulo":"pepito1", "descripcion": "blabla12134bla", "endTime":"25 Julio 2018"},
+    {"id":3, "titulo":"pepito2", "descripcion": "blablabdadala", "endTime":"25 Julio 2018"},
+    {"id":14, "titulo":"pepit3o", "descripcion": "blablarakjybla", "endTime":"25 Julio 2018"},
+    {"id":156, "titulo":"pepito4", "descripcion": "blabladadabla", "endTime":"25 Julio 2018"}
+  ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public threadsService: ThreadsService, 

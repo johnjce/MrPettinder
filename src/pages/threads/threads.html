@@ -11,6 +11,12 @@
 </ion-header>
 
 <ion-content padding>
+  <h2>Hola</h2>
+
+  <div >
+      <componente-edu *ngFor="let i of VariabledeEduConTodainfromacion" [customTitle]="i" ></componente-edu>
+  </div>
+
   <ion-list>
     <ion-item-sliding *ngFor="let threads of threadss">
       <ion-item (click)="openModal({id: threads.id})">

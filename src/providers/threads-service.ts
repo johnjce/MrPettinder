@@ -23,7 +23,7 @@ export class ThreadsService {
     if (threads['thread_id']) {
       result = this.http.put(threads.threads['id'], threads);
     } else {
-      result = this.http.post(threads);
+      //result = this.http.post(threads);
     }
     return result.catch(error => Observable.throw(error));
   }
