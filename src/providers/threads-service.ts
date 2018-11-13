@@ -35,7 +35,11 @@ export class ThreadsService {
       result = this.http.put(this.THREADS_API,threads.threads.id, threads);
     } else {
 <<<<<<< HEAD
+<<<<<<< HEAD
       result = this.http.post(this.THREADS_API,threads);
+=======
+      //result = this.http.post(threads);
+>>>>>>> appGS1/master
 =======
       //result = this.http.post(threads);
 >>>>>>> appGS1/master
