@@ -12,9 +12,6 @@ export class ThreadsPage {
   private threadss: Array<any>;
 
 
-
-<<<<<<< HEAD
-=======
   /***
    * 1. Creas con ionic generate component [NOMBRE]
    * 2. En el "module" de cada page añades el component
@@ -26,7 +23,6 @@ export class ThreadsPage {
    * 2. Bindeas y ya
    */
 
->>>>>>> appGS1/master
   VariabledeEduConTodainfromacion:any=[
     {"id":1, "titulo":"pepito", "descripcion": "blablabla", "endTime":"25 Julio 2018"},
     {"id":2, "titulo":"pepito1", "descripcion": "blabla12134bla", "endTime":"25 Julio 2018"},

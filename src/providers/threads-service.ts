@@ -15,7 +15,7 @@ export class ThreadsService {
             'Access-Control-Allow-Origin':'*',
             'Access-Control-Allow-Methods':'POST, GET, OPTIONS, PUT',
             'Accept':'application/json',
-            Authorization: 'Basic ' + token
+            Authorization: 'Basic ' + this.token
             })
     };
   constructor(public http: HttpClient) {
@@ -34,15 +34,8 @@ export class ThreadsService {
     if (threads) {
       result = this.http.put(this.THREADS_API,threads.threads.id, threads);
     } else {
-<<<<<<< HEAD
-<<<<<<< HEAD
       result = this.http.post(this.THREADS_API,threads);
-=======
-      //result = this.http.post(threads);
->>>>>>> appGS1/master
-=======
-      //result = this.http.post(threads);
->>>>>>> appGS1/master
+
     }
     return result.catch(error => Observable.throw(error));
   }
