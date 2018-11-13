@@ -13,6 +13,17 @@ export class ThreadsPage {
 
 
 
+  /***
+   * 1. Creas con ionic generate component [NOMBRE]
+   * 2. En el "module" de cada page añades el component
+   * 3. en el html del page "invocas" al componenete <componenete-edu>
+   * 
+   * 
+   * --- En el componenete /componenent/componenente-edu
+   * 1. Si quieres RECIBIR info creas una variable con @input
+   * 2. Bindeas y ya
+   */
+
   VariabledeEduConTodainfromacion:any=[
     {"id":1, "titulo":"pepito", "descripcion": "blablabla", "endTime":"25 Julio 2018"},
     {"id":2, "titulo":"pepito1", "descripcion": "blabla12134bla", "endTime":"25 Julio 2018"},
