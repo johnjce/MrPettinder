@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Good Threads</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openModal()" color="primary">
+        <ion-icon name="add-circle"></ion-icon>
+        <ion-icon name="beer"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let threads of threadss">
+      <ion-item (click)="openModal({id: threads.id})">
+        <ion-avatar item-left>
+          <img src="../../assets/icon/favicon.ico">
+        </ion-avatar>
+        <h2>{{threads.title}}</h2>
+        <p>{{threads.description}}</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="danger" (click)="remove(threads)">
+          <ion-icon name="trash"></ion-icon> Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

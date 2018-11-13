@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{threads.id ? 'Thread Details' : 'Add Thread'}}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios,core">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <form #threadsForm="ngForm" (ngSubmit)="save(threadsForm.value)">
+      <input type="hidden" name="id" [(ngModel)]="threads.id"/>
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input placeholder="Title thread" name="title" type="text"
+                       required [(ngModel)]="threads.title" #name></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input placeholder="Description" name="decription" type="text"
+                       required [(ngModel)]="threads.description" ></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input placeholder="Creation date" name="creation_date" type="date"
+                       required [(ngModel)]="threads.creationDate" ></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input placeholder="State" name="open" type="text"
+                       required [(ngModel)]="threads.open" ></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <button ion-button color="primary" full type="submit"
+                [disabled]="!threadsForm.form.valid">Save</button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
