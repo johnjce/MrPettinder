@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons end>
+      <button ion-button color="primary" outline icon-only (click)="openProfile()">
+        <ion-icon name="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-lines>
+    <button ion-item *ngFor="let thread of threads" (click)="openItem(thread.id)">
+      {{thread.title}}
+    </button> 
+  </ion-list>
+</ion-content>

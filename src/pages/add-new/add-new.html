@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Add New
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="cancel()">
+        Cancel
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page6">
+  
+    <ion-item id="addNew-input1">
+      <ion-label>
+        Name
+      </ion-label>
+      <ion-input type="text" placeholder="" [(ngModel)]="product.name"></ion-input>
+    </ion-item>
+    <ion-item id="addNew-input2">
+      <ion-label>
+        Price
+      </ion-label>
+      <ion-input type="text" placeholder="" [(ngModel)]="product.price"></ion-input>
+    </ion-item>
+    <ion-item id="addNew-textarea1">
+      <ion-label>
+        Description
+      </ion-label>
+      <ion-textarea placeholder="" [(ngModel)]="product.description"></ion-textarea>
+    </ion-item>
+    <ion-item id="addNew-input4">
+      <ion-label>
+        Image URL
+      </ion-label>
+      <ion-input type="text" placeholder="" [(ngModel)]="product.imageURL"></ion-input>
+    </ion-item>
+  
+  <div>
+    <img [src]="product.imageURL" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
+  </div>
+  <button (click)="submit(product)" id="addNew-button1" ion-button color="positive" block>
+    Submit
+  </button>
+</ion-content>

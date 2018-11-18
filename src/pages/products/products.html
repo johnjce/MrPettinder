@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Products
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addPage()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page2">
+  <ion-list>
+    <ion-item *ngFor="let product of productList" color="none" on-click="goToProductDetails(product)" id="products-list-item1">
+      <ion-thumbnail item-left>
+        <img [src]="product.imageURL" />
+      </ion-thumbnail>
+      <h2>
+        {{product.name}}
+      </h2>
+      <p>{{product.price}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

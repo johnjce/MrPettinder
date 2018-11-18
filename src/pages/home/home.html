@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>MR.Pettinder</ion-title>
+    <ion-buttons end>
+      <button ion-button color="primary" outline icon-only (click)="openProfile(1)">
+        <ion-icon name="logo-github"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+  <ion-list *ngFor="let subforum of subforums" (click)="openThreads(subforum.id)">
+      <ion-card>
+        <img src="https://picsum.photos/200/200/?image=844"/>
+        <div class="card-title">{{subforum.description}}</div>
+      </ion-card>
+  </ion-list>
+</ion-content>
+

@@ -1,0 +1,57 @@
+page-dashboard {
+
+    .card1{
+        border-radius: 10%;
+        width: 95%;
+
+    }
+
+    .block1{
+        background-color: palevioletred;
+        color: whitesmoke;
+        
+    }
+
+    .block12{
+        background-color: purple;   
+        color: aliceblue;
+    }
+
+    .block2{
+        background-color:rgba(55, 127, 209, 0.781);
+        color: whitesmoke;
+    }
+    .block21{
+        background-color: rgb(56, 107, 216);
+        color: whitesmoke;
+    }
+
+    .note1{
+        color: black;
+    }
+
+    .relative {
+        position: relative;
+      }
+      
+      .absolute-center {
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      .text-center{
+        text-align: center;
+      }
+      
+      p {
+        font-size: 1.3rem;
+        
+      }
+      
+     
+     
+
+    
+}

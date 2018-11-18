@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     {{product.name}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page5">
+  <ion-card id="productDetails-card22">
+    <ion-list>
+      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
+        <img [src]="product.imageURL"/>
+      </div>
+      <ion-item id="productDetails-list-item-container4">
+        <div id="productDetails-markdown4" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">
+            {{product.description}}
+          </p>
+        </div>
+      </ion-item>
+      <ion-item color="assertive" id="productDetails-list-item9">
+        <ion-icon name="pricetag" item-left></ion-icon>
+        RM {{product.price}}
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>
