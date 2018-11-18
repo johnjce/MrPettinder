@@ -11,7 +11,7 @@
 
 <ion-content>
   <h2>{{title}} </h2><br><hr>
-  <ion-card *ngFor="let thread of completeThread">
+  <ion-card *ngFor="let thread of completeThread | orderBy:'-lastEditDate'">
       <ion-item >
         <ion-avatar item-left>
           <img src="https://picsum.photos/20/20/?image=844">

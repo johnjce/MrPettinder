@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
+import { OrderByPipe } from './order-by-pipe';
+
 
 import { VetPpPage } from '../pages/vet-pp/vet-pp';
 import { UserProfilePage } from '../pages/user-profile/user-profile';
@@ -36,6 +38,7 @@ import { AddNewPage } from '../pages/add-new/add-new';
 @NgModule({
   declarations: [
     MyApp,
+    OrderByPipe,
     ThreadsPage,
     CompleteThreadPage,
     VetPpPage,
