@@ -2,16 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ThreadsProvider } from '../../providers/threads/threads';
 import { CompleteThreadPage } from '../complete-thread/complete-thread';
+import { ThreadCrudPage } from '../thread-crud/thread-crud';
 
-
-import { OrdersPage } from '../orders/orders';
-import { DashboardPage } from '../dashboard/dashboard';
-import { SettingsPage } from '../settings/settings';
-import { LoginPage } from '../login/login';
-
-import { ProductsPage } from '../products/products';
-import { ProductDetailsPage } from '../product-details/product-details';
-import { AddNewPage } from '../add-new/add-new';
 
 @Component({
   selector: 'page-threads',
@@ -30,7 +22,7 @@ export class ThreadsPage {
     return this.threadsProvider.getThreads(this.id).subscribe(
       (data) => {
         this.threads = data.threads;
-        this.title = data.description;
+        this.title = data.title;
       },
       (error) =>{
         console.error(error);
@@ -42,7 +34,7 @@ export class ThreadsPage {
     this.navCtrl.push(CompleteThreadPage, id);
   }
 
-  openProfile() {
-    this.navCtrl.push(DashboardPage);
+  newThread() {
+    this.navCtrl.push(ThreadCrudPage,this.id);
   }
 }

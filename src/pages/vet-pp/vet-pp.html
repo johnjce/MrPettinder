@@ -1,11 +1,42 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      John eres un incredulo, edu es elk putop
-    </ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Formulario</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()">
+    <ion-list>
+      <ion-item>
+        <ion-icon name="person" item-start></ion-icon>
+        <ion-label stacked>Title:</ion-label>
+        <ion-input formControlName="title" type="text" placeholder="Title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="person" item-start></ion-icon>
+        <ion-label stacked>Description:</ion-label>
+        <ion-input formControlName="description" type="text" placeholder="Description"></ion-input>
+        <input formControlName="parentSubforumId" type="hidden" ng-value="id" />{{id}}
+      </ion-item>
+      <ion-row radio-group formControlName="open">
+        <ion-col>
+          <ion-item>
+            <ion-icon name="woman" item-start></ion-icon>
+            <ion-label>True</ion-label>
+            <ion-radio value="true"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-icon name="False" item-start></ion-icon>
+            <ion-label>Hombre</ion-label>
+            <ion-radio value="false"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!myForm.valid">Guardar</button>
+    </div>
+  </form>
 </ion-content>

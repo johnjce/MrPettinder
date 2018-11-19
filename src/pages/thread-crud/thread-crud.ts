@@ -3,15 +3,17 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ThreadsProvider } from '../../providers/threads/threads';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
-  selector: 'page-vet-pp',
-  templateUrl: 'vet-pp.html',
+  selector: 'page-thread-crud',
+  templateUrl: 'thread-crud.html',
 })
-export class VetPpPage {
+export class ThreadCrudPage {
+
   id: number;
   title:string="";
   myForm: FormGroup;
-
+  data:string;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private threadsProvider: ThreadsProvider,
@@ -25,7 +27,6 @@ export class VetPpPage {
     return this.threadsProvider.getThreads(this.id).subscribe(
       (data) => {
         this.title = data.title;
-        this.id = data.id;
       },
       (error) =>{
         console.error(error);
@@ -33,15 +34,13 @@ export class VetPpPage {
     );
   }
   saveData(){
-    console.log(this.myForm.value);
+    this.threadsProvider.setThread(this.myForm.value);
   }
   private createMyForm(){
     return this.formBuilder.group({
       title: ['', Validators.required],
       parentSubforumId: [this.id, Validators.required],
       description: ['', Validators.required],
-      open: ['', Validators.required],
     });
   }
-
 }

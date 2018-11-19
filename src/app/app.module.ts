@@ -15,6 +15,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ThreadsPage } from '../pages/threads/threads';
 import { CompleteThreadPage } from '../pages/complete-thread/complete-thread';
+import { ThreadCrudPage } from '../pages/thread-crud/thread-crud';
 
 
 import { HttpClientModule } from '@angular/common/http';
@@ -46,6 +47,7 @@ import { AddNewPage } from '../pages/add-new/add-new';
     TabsPage,
     UserProfilePage,
     AdminProfilePage,
+    ThreadCrudPage,
 
     OrdersPage,
     DashboardPage,
@@ -70,6 +72,7 @@ import { AddNewPage } from '../pages/add-new/add-new';
     TabsPage,
     UserProfilePage,
     AdminProfilePage,
+    ThreadCrudPage,
 
     OrdersPage,
     DashboardPage,
