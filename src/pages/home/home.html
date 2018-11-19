@@ -10,11 +10,15 @@
 </ion-header>
 
 <ion-content padding class="card-background-page">
+  <ion-row class="row" responsive-sm wrap>
   <ion-list *ngFor="let subforum of subforums" (click)="openThreads(subforum.id)">
       <ion-card>
-        <img src="https://picsum.photos/100/100/?image=844"/>
-        <div class="card-title">{{subforum.description}}</div>
+        <img src="https://picsum.photos/120/120/?image=844"/>
+        <div text-center class="card-title">{{subforum.description}}</div>
       </ion-card>
   </ion-list>
+  </ion-row>
+</ion-content>
+<ion-content   padding class="getstart">
 </ion-content>
 
