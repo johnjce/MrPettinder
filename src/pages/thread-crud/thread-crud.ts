@@ -14,6 +14,7 @@ export class ThreadCrudPage {
   title:string="";
   myForm: FormGroup;
   data:string;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private threadsProvider: ThreadsProvider,
@@ -26,7 +27,7 @@ export class ThreadCrudPage {
   getAllThreads() {
     return this.threadsProvider.getThreads(this.id).subscribe(
       (data) => {
-        this.title = data.title;
+        this.title = data.threads.title;
       },
       (error) =>{
         console.error(error);
@@ -34,14 +35,21 @@ export class ThreadCrudPage {
     );
   }
   saveData(){
-    this.threadsProvider.setThread(this.myForm.value);
+    let dataOfThread = {
+      'parentSubforumId' : this.myForm.value.parentSubforumId,
+      'title' : this.myForm.value.title,
+      'description' : this.myForm.value.description,
+      'messages' : []
+      };
+console.log(dataOfThread);
+    this.threadsProvider.setThread(dataOfThread);
   }
   private createMyForm(){
     return this.formBuilder.group({
       title: ['', Validators.required],
       parentSubforumId: [this.id, Validators.required],
-      description: ['', Validators.required],
-      messages: [],
+      description: ['', Validators.required]
     });
   }
+
 }
