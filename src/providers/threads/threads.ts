@@ -12,12 +12,14 @@ export class ThreadsProvider {
   getThreads(id:number): Observable< any > {
     return this.http.get(this.apiurlProvider.getAPIURL()+'/subforums/'+id);
   }
-  setThread(body:any): Observable< void > {
+  setThread(body:any): Observable< any > {
     this.http.post(this.apiurlProvider.getAPIURL()+'/threads/', body)
       .subscribe(data => {
         console.log(data['_body']);
+        return 1;
        }, error => {
         console.log(error);
+        return error;
       });
   }
 }

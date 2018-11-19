@@ -41,6 +41,7 @@ export class ThreadCrudPage {
       title: ['', Validators.required],
       parentSubforumId: [this.id, Validators.required],
       description: ['', Validators.required],
+      messages: [],
     });
   }
 }
