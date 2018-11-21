@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ThreadsProvider } from '../../providers/threads/threads';
+import { ThreadsProvider } from '../../../providers/threads/threads';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { CompleteThreadProvider } from '../../providers/complete-thread/complete-thread';
+import { CompleteThreadProvider } from '../../../providers/complete-thread/complete-thread';
 
 
 @Component({

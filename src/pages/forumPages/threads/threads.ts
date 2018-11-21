@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ThreadsProvider } from '../../providers/threads/threads';
+import { ThreadsProvider } from '../../../providers/threads/threads';
 import { CompleteThreadPage } from '../complete-thread/complete-thread';
 import { ThreadCrudPage } from '../thread-crud/thread-crud';
 

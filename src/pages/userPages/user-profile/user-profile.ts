@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserProvider } from '../../providers/user/user';
+import { UserProvider } from '../../../providers/user/user';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({

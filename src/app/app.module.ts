@@ -7,15 +7,25 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { OrderByPipe } from './order-by-pipe';
 
-
 import { VetPpPage } from '../pages/vet-pp/vet-pp';
-import { UserProfilePage } from '../pages/user-profile/user-profile';
-import { AdminProfilePage } from '../pages/admin-profile/admin-profile';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { ThreadsPage } from '../pages/threads/threads';
-import { CompleteThreadPage } from '../pages/complete-thread/complete-thread';
-import { ThreadCrudPage } from '../pages/thread-crud/thread-crud';
+
+import { UserProfilePage } from '../pages/userPages/user-profile/user-profile';
+import { AdminProfilePage } from '../pages/userPages/admin-profile/admin-profile';
+import { DashboardPage } from '../pages/userPages/dashboard/dashboard';
+import { SettingsPage } from '../pages/userPages/settings/settings';
+import { LoginPage } from '../pages/userPages/login/login';
+
+import { HomePage } from '../pages/forumPages/home/home';
+import { ThreadsPage } from '../pages/forumPages/threads/threads';
+import { CompleteThreadPage } from '../pages/forumPages/complete-thread/complete-thread';
+import { ThreadCrudPage } from '../pages/forumPages/thread-crud/thread-crud';
+
+
+import { OrdersPage } from '../pages/shopPages/orders/orders';
+import { ProductsPage } from '../pages/shopPages/products/products';
+import { ProductDetailsPage } from '../pages/shopPages/product-details/product-details';
+import { AddNewPage } from '../pages/shopPages/add-new/add-new';
 
 
 import { HttpClientModule } from '@angular/common/http';
@@ -24,16 +34,6 @@ import { ThreadsProvider } from '../providers/threads/threads';
 import { CompleteThreadProvider } from '../providers/complete-thread/complete-thread';
 import { ApiurlProvider } from '../providers/apiurl/apiurl';
 import { UserProvider } from '../providers/user/user';
-
-
-import { OrdersPage } from '../pages/orders/orders';
-import { DashboardPage } from '../pages/dashboard/dashboard';
-import { SettingsPage } from '../pages/settings/settings';
-import { LoginPage } from '../pages/login/login';
-
-import { ProductsPage } from '../pages/products/products';
-import { ProductDetailsPage } from '../pages/product-details/product-details';
-import { AddNewPage } from '../pages/add-new/add-new';
 
 
 @NgModule({
