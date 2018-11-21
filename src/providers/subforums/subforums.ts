@@ -10,7 +10,15 @@ export class SubforumsProvidersProvider {
   constructor(public http: HttpClient, private apiurlProvider: ApiurlProvider) {
   }
   list(): Observable< any > {
-    return this.http.get(this.apiurlProvider.getAPIURL()+'/subforums',{ headers: new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Basic dXNlcjpwYXNzd29yZA==')})
+ 
+    return this.http.get(this.apiurlProvider.getAPIURL()+'/subforums',{ 
+      headers: new HttpHeaders()
+      .set('Authorization', 'Basic dXNlcjpwYXNzd29yZA==')
+      .set('Content-Type', 'application/json')
+      .set('cache-control', 'no-cache')
+      .set('Access-Control-Allow-Credentials', 'true')
+      .set('Access-Control-Allow-Origin', 'true')
+    })
     .map((res: Response) => res.json());
   }
 }
