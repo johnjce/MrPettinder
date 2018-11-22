@@ -50,7 +50,7 @@ export class LoginPage {
         this.navCtrl.setRoot(TabsPage);
       }, err => {
         console.log(err);
-        alert(JSON.parse(err._body).message);
+        alert(err.url);
         loading.dismiss();
       });
   }

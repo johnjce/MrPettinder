@@ -6,7 +6,7 @@ export class ApiurlProvider {
 
   constructor(public http: HttpClient) {}
   getAPIURL(){
-    return "http://0876f473.ngrok.io";
+    return "http://a0dea55d.ngrok.io";
   }
 
 }
