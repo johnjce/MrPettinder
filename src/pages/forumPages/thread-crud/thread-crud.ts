@@ -41,8 +41,13 @@ export class ThreadCrudPage {
       'description' : this.myForm.value.description,
       'messages' : []
       };
-console.log(dataOfThread);
-    this.threadsProvider.setThread(dataOfThread);
+    this.threadsProvider.setThread(dataOfThread).subscribe(
+      (data) => {
+        console.log("info:" + data);
+      },
+      (error) =>{
+        console.error("error:" + error);
+      });
   }
   private createMyForm(){
     return this.formBuilder.group({

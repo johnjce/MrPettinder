@@ -13,12 +13,11 @@ export class SubforumsProvidersProvider {
  
     return this.http.get(this.apiurlProvider.getAPIURL()+'/subforums',{ 
       headers: new HttpHeaders()
-      .set('Authorization', 'Basic dXNlcjpwYXNzd29yZA==')
+      .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
       .set('Content-Type', 'application/json')
       .set('cache-control', 'no-cache')
       .set('Access-Control-Allow-Credentials', 'true')
       .set('Access-Control-Allow-Origin', 'true')
-    })
-    .map((res: Response) => res.json());
+    }).map(res => res);
   }
 }

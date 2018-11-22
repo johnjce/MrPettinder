@@ -25,7 +25,7 @@ export class LoginPage {
   handleError(error: any) {
     let message: string;
 	    if (error.status && error.status === 401) {
-        message = 'Login failed!';
+        message = "User o password invalid, please check";
       } else {
         message = `An unexpected error occured, please check. Error message: ${error.statusText}`;
       }
@@ -42,16 +42,17 @@ export class LoginPage {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
-
     loading.present();
-    this.userProvider.login(this.username, this.password)
+    this.userProvider.login(this.username, this.password);
+    loading.dismiss();
+    /*
       .then(data => {
         loading.dismiss();
         this.navCtrl.setRoot(TabsPage);
       }, err => {
         console.log(err);
-        alert(err.url);
         loading.dismiss();
-      });
+        this.handleError(err);
+      });*/
   }
 }
