@@ -38,21 +38,24 @@ export class LoginPage {
 
     toast.present();
   }
+  
   login(){
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     loading.present();
-    this.userProvider.login(this.username, this.password);
-    loading.dismiss();
-    /*
-      .then(data => {
+    this.userProvider.login(this.username, this.password)
+    .subscribe(
+      (data) => {
         loading.dismiss();
         this.navCtrl.setRoot(TabsPage);
-      }, err => {
-        console.log(err);
+      },
+      (error) =>{
+        this.handleError(error);
         loading.dismiss();
-        this.handleError(err);
-      });*/
+        console.error(error);
+      }
+    );
+
   }
 }

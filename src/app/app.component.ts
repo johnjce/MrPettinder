@@ -17,7 +17,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-    this.apiurlProvider.setAutorization(btoa("user" + ":" + "password"));
+    //this.apiurlProvider.setAutorization(btoa("user" + ":" + "password"));
     if(this.apiurlProvider.getAutorization() == ''){
       this.rootPage = LoginPage;
     }else{

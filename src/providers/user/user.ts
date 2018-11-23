@@ -13,43 +13,21 @@ export class UserProvider {
   
   error: string;
   
-  constructor(public http: HttpClient, 
-              private apiurlProvider: ApiurlProvider) {
-
-  }
+  constructor(public http: HttpClient, private apiurlProvider: ApiurlProvider) { }
 
   getUser(id:number): Observable< any > {
-    return this.http.get(this.apiurlProvider.getAPIURL()+'/users/'+id);
+    return this.http.get(this.apiurlProvider.getAPIURL()+'/users/'+id).map(res => res);
   }
   
-  isTokenSaved() {
-  }
-  
-  cleanTheToken() {
-  }
-  
-  login(username, password) {
-    if (this.data) {
-      return Promise.resolve(this.data);
-    }
-    console.log('username ' + username + ' password ' + password);
-    /*return new Promise((resolve,reject) => {
-      this.http.post(this.apiurlProvider.getAPIURL() + '/login', {
-        "username": username,
-        "password": password
-      },{ 
-        headers: new HttpHeaders()
-        .set('Content-Type', 'application/x-www-form-urlencoded')
-        .set('Access-Control-Allow-Credentials', 'true')
-        .set('Access-Control-Allow-Origin', 'true')
-      }).timeout(2500)
-        .subscribe(data => {
-            this.data = data;
-            this.apiurlProvider.setAutorization(btoa(username + ":" + password));
-            resolve(this.data);
-          }, err => {
-            reject(err);
-        });
-    });*/
+  login(username, password): Observable< any > {
+    this.apiurlProvider.setAutorization(btoa(username + ":" + password));
+    return this.http.get(this.apiurlProvider.getAPIURL()+'/subforums',{ 
+      headers: new HttpHeaders()
+      .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
+      .set('Content-Type', 'application/json')
+      .set('cache-control', 'no-cache')
+      .set('Access-Control-Allow-Credentials', 'true')
+      .set('Access-Control-Allow-Origin', 'true')
+    }).map(res => res);
   }
 }

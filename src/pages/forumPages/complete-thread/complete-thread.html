@@ -2,7 +2,7 @@
   <ion-navbar>
     <ion-title>{{title}}</ion-title>
     <ion-buttons end>
-      <button ion-button color="primary" outline icon-only (click)="openProfile(1)">
+      <button ion-button color="primary" outline icon-only (click)="addMessage()">
         <ion-icon name="md-add-circle"></ion-icon>
       </button>
     </ion-buttons>
@@ -14,10 +14,10 @@
   <ion-card *ngFor="let thread of completeThread | orderBy:'-lastEditDate'">
       <ion-item >
         <ion-avatar item-left>
-          <img src="https://picsum.photos/20/20/?image=844">
+          <img src="https://picsum.photos/20/20/?image=845">
         </ion-avatar>
         <h2>{{thread.writtenBy}}</h2>
-        <p>{{thread.lastEditDate | date:'dd/MM/yyyy HH:mm:ss'}}</p>
+        <p>{{thread.lastEditDate | date:'dd/MM/yyyy HH:mm'}}</p>
 
       </ion-item>
       <ion-card-content>
