@@ -8,15 +8,12 @@
   <form [formGroup]="myForm" (ngSubmit)="saveData()">
     <ion-list>
       <ion-item>
-        <ion-icon ios="ios-pricetag" md="md-pricetag"></ion-icon>
         <ion-label stacked>Title:</ion-label>
         <ion-input formControlName="title" type="text" [(ngModel)]="title"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>
         <ion-label stacked>Description:</ion-label>
         <ion-input formControlName="description" type="text" [(ngModel)]="description"></ion-input>
-        <input formControlName="parentSubforumId" type="text" ng-value="id"/>
       </ion-item>
     </ion-list>
     <div padding>

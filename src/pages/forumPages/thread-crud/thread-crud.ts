@@ -38,7 +38,7 @@ export class ThreadCrudPage {
   
   saveData(){
     let dataOfThread = {
-      'parentSubforumId' : this.myForm.value.parentSubforumId,
+      'parentSubforumId' : this.id,
       'title' : this.myForm.value.title,
       'description' : this.myForm.value.description,
       'messages' : []
@@ -55,7 +55,6 @@ export class ThreadCrudPage {
   private createMyForm(){
     return this.formBuilder.group({
       title: ['', Validators.required],
-      parentSubforumId: [this.id, Validators.required],
       description: ['', Validators.required]
     });
   }
