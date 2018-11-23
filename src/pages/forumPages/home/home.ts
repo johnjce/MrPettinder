@@ -31,7 +31,7 @@ export class HomePage {
     this.navCtrl.push(ThreadsPage, id);
   }
 
-  openProfile(id:string) {
-    this.navCtrl.push(UserProfilePage, id);
+  openProfile() {
+    this.navCtrl.push(UserProfilePage);
   }
 }

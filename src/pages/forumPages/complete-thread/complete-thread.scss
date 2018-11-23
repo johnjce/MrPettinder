@@ -1,16 +1,6 @@
 page-complete-thread {
-    .card-md p {
-        margin: 0 0 2px;
-        font-size: 1.4rem;
-        font-weight: normal;
-        line-height: 1.5;
-        color: #222;
-        padding: 0 3% 0 3%;
-        text-transform: capitalize;
-    }
-
     ion-item {
-    height: auto;
+        height: auto;
     }
 
     .card-md h2 {
@@ -24,7 +14,16 @@ page-complete-thread {
         font-style: italic;
         font-weight: bold;
         padding: 2% 0px 2% 0px;
-        border: 1px solid;
     }
     
+    .card-md p {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: normal;
+        line-height: 1.5;
+        color: #222;
+        padding: 0 3% 0 3%;
+        text-transform: capitalize;
+    }
+
 }

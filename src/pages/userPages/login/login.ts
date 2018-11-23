@@ -5,6 +5,7 @@ import { TabsPage } from '../../tabs/tabs';
 import { HttpClient } from '@angular/common/http';
 
 import { UserProvider } from '../../../providers/user/user';
+import { UserProfilePage } from '../user-profile/user-profile'
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -55,5 +56,9 @@ export class LoginPage {
       }
     );
 
+  }
+
+  register(){
+    this.navCtrl.setRoot(UserProfilePage,false);
   }
 }

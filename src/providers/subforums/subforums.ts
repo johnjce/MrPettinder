@@ -3,11 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs';
 import { ApiurlProvider } from '../apiurl/apiurl';
-
+import { UserProvider } from '../user/user';
+import { from } from 'rxjs/observable/from';
 @Injectable()
 export class SubforumsProvidersProvider {
 
-  constructor(public http: HttpClient, private apiurlProvider: ApiurlProvider) {
+  constructor(private userProvider: UserProvider, public http: HttpClient, private apiurlProvider: ApiurlProvider) {
   }
   list(): Observable< any > {
  
@@ -19,5 +20,9 @@ export class SubforumsProvidersProvider {
       .set('Access-Control-Allow-Credentials', 'true')
       .set('Access-Control-Allow-Origin', 'true')
     }).map(res => res);
+  }
+
+  getLoggedUser(){
+    this.userProvider.getLoggedUser();
   }
 }

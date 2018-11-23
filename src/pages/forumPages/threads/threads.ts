@@ -13,6 +13,7 @@ export class ThreadsPage {
   id: number;
   threads: any[] = [];
   title:string="";
+  description:string="";
   constructor(public navCtrl: NavController, public navParams: NavParams, private threadsProvider: ThreadsProvider ) {
     this.id = navParams.data;
     this.getAllThreads();
@@ -23,6 +24,7 @@ export class ThreadsPage {
       (data) => {
         this.threads = data.threads;
         this.title = data.title;
+        this.description = data.description;
       },
       (error) =>{
         console.error(error);

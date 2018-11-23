@@ -10,8 +10,13 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list no-lines>
-    <button ion-item *ngFor="let thread of threads | orderBy:'-creationDate'" (click)="openItem(thread.id)">
+  <ion-card>
+    <h2>{{title}} </h2><br>
+    <p>{{description}} </p><br>
+    <hr>
+  </ion-card>
+  <ion-list button-outline>
+    <button ion-item md-arrow-dropright *ngFor="let thread of threads | orderBy:'-creationDate'" (click)="openItem(thread.id)">
       {{thread.title}} - {{thread.description}}
     </button>
   </ion-list>

@@ -11,34 +11,34 @@ import { LoginPage } from '../login/login'
 })
 export class UserProfilePage {
   user: any[] = [];
-  dateOfBirth:string;
-  id: number;
+  dateOfBirth:Date;
+  id: any;
   age: string;
-  form: FormGroup;
-  isReadyToSave:any;
+  formCtrl: FormGroup;
+  password: any;
+  username: any;
 
   constructor(formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider ) {
     this.id = navParams.data;
-    this.getUser();
-    this.form = formBuilder.group({
+    if(this.id) this.getUser();
+    this.formCtrl = formBuilder.group({
       name: ['', Validators.required],
       surname: [''],
       email: [''],
-      dateOfBirth:['']
-    });
-
-    // Watch the form for changes, and
-    this.form.valueChanges.subscribe((v) => {
-      this.isReadyToSave = this.form.valid;
+      dateOfBirth:[''],
+      username: [''],
+      password: ['']
     });
   }
   
   getUser() {
-    return this.userProvider.getUser(this.id).subscribe(
+    return this.userProvider.getLoggedUser().subscribe(
       (data) => {
         this.user = data.profile;
-        this.dateOfBirth = new Date(data.profile.dateOfBirth).toISOString();
-        this.age = this.getAge(this.dateOfBirth);
+        this.username = data.username;
+        this.password = data.password;
+        this.dateOfBirth = new Date(data.profile.dateOfBirth);
+        this.age = this.getAge(this.dateOfBirth.toISOString());
       },
       (error) =>{
         console.error(error);
@@ -47,20 +47,25 @@ export class UserProfilePage {
   }
 
   save(){
+    console.log(this.formCtrl);
     let dataOfUser = {
-      'name' : this.form.value.name,
-      'surname' : this.form.value.surname,
-      'email' : this.form.value.email,
-      'dateOfBirth' : this.form.value.dateOfBirth
+        'username':this.formCtrl.value.username,
+        'password':this.formCtrl.value.password,
+        'profile': {
+          'name' : this.formCtrl.value.name,
+          'surname' : this.formCtrl.value.surname,
+          'email' : this.formCtrl.value.email,
+          'dateOfBirth' : this.formCtrl.value.dateOfBirth
+        }
       };
     this.userProvider.setUser(dataOfUser).subscribe(
       (data) => {
         console.log("info:" + data);
       },
       (error) =>{
-        console.error("error:" + error);
-      });
-    
+        console.error("error:" + error.message);
+      }
+    );
   }
 
   getAge(dateOfBirth){
