@@ -12,7 +12,9 @@
   <ion-content padding>
     <ion-list button-outline>
       <button ion-item md-arrow-dropright *ngFor="let vets of veterinarians" (click)="openItem(vets)">
-        {{vets.profile.name}} - available
+        {{vets.profile.name}}  
+        <div *ngIf="!vets.available">No available</div>
+        <div *ngIf="vets.available">Available</div>
       </button>
     </ion-list>
   </ion-content>

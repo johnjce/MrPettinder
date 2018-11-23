@@ -2,13 +2,14 @@ page-login {
 
     .image-logo{
         border-radius: 50%;
-        
+        -webkit-box-shadow: 3px 7px 10px grey;
         box-shadow: 3px 7px 10px grey;
         border: 3px solid white;
         width: 140px;
         height: 140px;
+        background-color: ivory;
     }
-
+    
     .btn{
         border:3px solid white ;
         box-shadow: 3px 4px 3px gainsboro;
