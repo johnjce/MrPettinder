@@ -1,47 +1,34 @@
 import {Component, ViewChild} from '@angular/core';
-/*import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {Util} from "../../providers/util/util";
-import {Friend, User} from "../../models/user";
-import {HttpProvider} from "../../providers/http/http";
-import {forkJoin} from 'rxjs/observable/forkJoin';
-import {MessageMocks} from "../../mocks/messageMocks";
-import {Message} from "../../models/message";
 import { Content } from 'ionic-angular';
+import { forkJoin } from 'rxjs/observable/forkJoin';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { HttpClient } from '@angular/common/http';
+import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 
-*/
 @Component({
   selector: 'page-chat-room',
   templateUrl: 'chat-room.html',
 })
 
-/**
- * @author: KMR
- * @email: yajuve.25.dz@gmail.com
- */
-
 export class ChatRoomPage {
-/*
   @ViewChild(Content) content: Content;
-  public Util = Util;
-  private friend:Friend = new Friend();
-  private myProfile:User = new User();
+  private friend;
+  private myProfile;
+  private isLoading;
   private messages;
-  private input: string = '';
-  private isLoading: boolean = true;
-
-  constructor(public msgMocks:MessageMocks, public http:HttpProvider, public navCtrl:NavController, public navParams:NavParams) {
+  constructor(public http: HttpClient, public navCtrl:NavController, public navParams:NavParams) {
 
   }
 
   ionViewDidLoad() {
     this.isLoading = true;
-    this.messages = this.msgMocks.items;
+   // this.messages = this.msgMocks.items;
     this.friend = this.navParams.get('friend');
     forkJoin(
       this.http.get('my-profile.json')
     ).subscribe(([profile]) => {
       this.isLoading = false;
-      this.myProfile = <User>profile;
+      this.myProfile = <any>profile;
     });
   }
 
@@ -50,13 +37,13 @@ export class ChatRoomPage {
   }
 
   scrollToBottom() {
-    setTimeout(() => {
+    /*setTimeout(() => {
       this.content.scrollToBottom(300);
-    });
+    });*/
   }
 
 
-  doSend() {
+  doSend() {/*
     if(this.input.length > 0) {
       let message: Message = new Message();
       message.to = this.friend.username;
@@ -65,7 +52,7 @@ export class ChatRoomPage {
       this.msgMocks.add(message);
       this.scrollToBottom();
       this.input = '';
-    }
-  }*/
+    }*/
+  }
 
 }

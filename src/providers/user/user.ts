@@ -10,13 +10,26 @@ export class UserProvider {
   
   error: string;
   username: any;
+  timeAvailable:any = 100;
   
   constructor(public http: HttpClient, private apiurlProvider: ApiurlProvider) { }
   
+  getTimeAvailable(): any {
+    return this.timeAvailable;
+  }
+
+  setTimeAvailable(time): any {
+    this.timeAvailable = time;
+  }
+
   getLoggedUser(): Observable< any > {
     return this.http.get(this.apiurlProvider.getAPIURL()+'/users/'+this.username).map(res => res);
   }
   
+  getVeterinarians(): Observable< any > {
+    return this.http.get(this.apiurlProvider.getAPIURL()+'/vets').map(res => res);
+  }
+
   setUser(dataOfUser): Observable< any > {
       return this.http.post(this.apiurlProvider.getAPIURL()+'/users/', dataOfUser, { 
         headers: new HttpHeaders()

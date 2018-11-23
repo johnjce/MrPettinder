@@ -7,7 +7,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { OrderByPipe } from './order-by-pipe';
 
-import { VetPpPage } from '../pages/vet-pp/vet-pp';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { UserProfilePage } from '../pages/userPages/user-profile/user-profile';
@@ -35,6 +34,8 @@ import { CompleteThreadProvider } from '../providers/complete-thread/complete-th
 import { ApiurlProvider } from '../providers/apiurl/apiurl';
 import { UserProvider } from '../providers/user/user';
 
+import { ListVetsPage } from '../pages/vetPages/list-vets/list-vets';
+import { ChatRoomPage } from '../pages/vetPages/chat-room/chat-room';
 
 @NgModule({
   declarations: [
@@ -42,12 +43,13 @@ import { UserProvider } from '../providers/user/user';
     OrderByPipe,
     ThreadsPage,
     CompleteThreadPage,
-    VetPpPage,
     HomePage,
     TabsPage,
     UserProfilePage,
     AdminProfilePage,
     ThreadCrudPage,
+    ListVetsPage,
+    ChatRoomPage,
 
     OrdersPage,
     DashboardPage,
@@ -67,12 +69,13 @@ import { UserProvider } from '../providers/user/user';
     MyApp,
     ThreadsPage,
     CompleteThreadPage,
-    VetPpPage,
     HomePage,
     TabsPage,
     UserProfilePage,
     AdminProfilePage,
     ThreadCrudPage,
+    ListVetsPage,
+    ChatRoomPage,
 
     OrdersPage,
     DashboardPage,

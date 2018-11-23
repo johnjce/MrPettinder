@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Available Veterinarians</ion-title>
+      <ion-buttons end>
+        <button ion-button color="primary" outline icon-only (click)="payMinutes()">
+          <ion-icon name="md-clock"></ion-icon>{{timeAvailable}} minutes
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-list button-outline>
+      <button ion-item md-arrow-dropright *ngFor="let vets of veterinarians" (click)="openItem(vets)">
+        {{vets.profile.name}} - available
+      </button>
+    </ion-list>
+  </ion-content>
