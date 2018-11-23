@@ -48,9 +48,9 @@ export class UserProfilePage {
 
   save(){
     let dataOfUser = {
-      'name' : this.form.value.parentSubforumId,
-      'surname' : this.form.value.title,
-      'email' : this.form.value.description,
+      'name' : this.form.value.name,
+      'surname' : this.form.value.surname,
+      'email' : this.form.value.email,
       'dateOfBirth' : this.form.value.dateOfBirth
       };
     this.userProvider.setUser(dataOfUser).subscribe(

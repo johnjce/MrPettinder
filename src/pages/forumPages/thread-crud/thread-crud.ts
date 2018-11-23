@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ThreadsProvider } from '../../../providers/threads/threads';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { ThreadsPage } from '../threads/threads'
 
 @Component({
   selector: 'page-thread-crud',
@@ -34,6 +35,7 @@ export class ThreadCrudPage {
       }
     );
   }
+  
   saveData(){
     let dataOfThread = {
       'parentSubforumId' : this.myForm.value.parentSubforumId,
@@ -43,7 +45,8 @@ export class ThreadCrudPage {
       };
     this.threadsProvider.setThread(dataOfThread).subscribe(
       (data) => {
-        console.log("info:" + data);
+        console.log(data);
+        this.navCtrl.setRoot(ThreadsPage, this.id);
       },
       (error) =>{
         console.error("error:" + error);

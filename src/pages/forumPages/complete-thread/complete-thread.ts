@@ -14,6 +14,8 @@ export class CompleteThreadPage {
   completeThread: any[] = [];
   title:string="";
   myForm: FormGroup;
+  
+  description:string="";
 
   constructor(public formBuilder:FormBuilder,public navCtrl: NavController, public navParams: NavParams, private completeThreadProvider: CompleteThreadProvider) {
       this.id = navParams.data;
@@ -26,6 +28,7 @@ export class CompleteThreadPage {
       (data) => {
         this.completeThread = data.messages;
         this.title = data.title;
+        this.description = data.description;
       },
       (error) =>{
         console.error(error);
@@ -41,6 +44,7 @@ export class CompleteThreadPage {
     this.completeThreadProvider.setMessage(dataOfMessage).subscribe(
       (data) => {
         console.log("info:" + data);
+        this.navCtrl.setRoot(CompleteThreadPage, this.id);
       },
       (error) =>{
         console.error("error:" + error);
@@ -49,7 +53,6 @@ export class CompleteThreadPage {
 
   private createMyForm(){
     return this.formBuilder.group({
-      parentThreadId: [this.id],
       content: ['', Validators.required]
     });
   }

@@ -1,21 +1,20 @@
 <ion-header>
   <ion-navbar>
     <ion-title>{{title}}</ion-title>
-    <ion-buttons end>
-      <button ion-button color="primary" outline icon-only (click)="addMessage()">
-        <ion-icon name="md-add-circle"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <h2>{{title}} </h2><br>
-  <hr>
+    <ion-card>
+      <h2>{{title}} </h2><br>
+      <p>{{description}} </p><br>
+      <hr>
+    </ion-card>
+  
   <ion-card *ngFor="let thread of completeThread | orderBy:'-lastEditDate'">
     <ion-item>
       <ion-avatar item-left>
-        <img src="https://picsum.photos/20/20/?image=845">
+        <img src="https://picsum.photos/20/20/?image=849">
       </ion-avatar>
       <h2>{{thread.writtenBy}}</h2>
       <p>{{thread.lastEditDate | date:'dd/MM/yyyy HH:mm'}}</p>
@@ -46,7 +45,6 @@
       <ion-item>
         <ion-label stacked>Replay message:</ion-label>
         <ion-input formControlName="content" type="text" [(ngModel)]="content"></ion-input>
-        <input formControlName="parentThreadId" type="text" ng-value="id" />
       </ion-item>
     </ion-list>
     <div padding>

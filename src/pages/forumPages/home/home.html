@@ -14,7 +14,7 @@
   <ion-list *ngFor="let subforum of subforums" (click)="openThreads(subforum.id)">
       <ion-card>
         <img src="https://picsum.photos/120/120/?image=846"/>
-        <div text-center class="card-title">{{subforum.description}}</div>
+        <div text-center class="card-title">{{subforum.title}}</div>
       </ion-card>
   </ion-list>
   </ion-row>
