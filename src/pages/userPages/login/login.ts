@@ -10,8 +10,6 @@ import { UserProvider } from '../../../providers/user/user';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  users: any;
-  nextPage = TabsPage ;
   username:string='user';
   password:string='password';
   constructor(public navCtrl: NavController, 

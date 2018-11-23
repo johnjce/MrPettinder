@@ -3,6 +3,8 @@ import { UserProvider } from '../../../providers/user/user';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { LoginPage } from '../login/login'
+
 @Component({
   selector: 'page-user-profile',
   templateUrl: 'user-profile.html',
@@ -64,5 +66,10 @@ export class UserProfilePage {
   getAge(dateOfBirth){
     let currentTime = new Date().getTime();
     return ((currentTime - new Date(dateOfBirth).getTime())/31556952000).toFixed(0);
+  }
+
+  logout(){
+    this.userProvider.logout();
+    this.navCtrl.setRoot(LoginPage);
   }
 }

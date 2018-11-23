@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs';
 import { ApiurlProvider } from '../apiurl/apiurl';
 
-
 @Injectable()
 export class UserProvider {
   
@@ -18,8 +17,8 @@ export class UserProvider {
     return this.http.get(this.apiurlProvider.getAPIURL()+'/users/'+id).map(res => res);
   }
   
-  setUser(dataOfUser: { 'name': any; 'surname': any; 'email': any; 'dateOfBirth': any; }): Observable< any > {
-      return this.http.put(this.apiurlProvider.getAPIURL()+'/users/', dataOfUser, { 
+  setUser(dataOfUser): Observable< any > {
+      return this.http.post(this.apiurlProvider.getAPIURL()+'/users/', dataOfUser, { 
         headers: new HttpHeaders()
         .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
         .set('Content-Type', 'application/json')
@@ -43,7 +42,6 @@ export class UserProvider {
   
   logout(){
     this.apiurlProvider.setAutorization("");
-    return true;
   }
 
   setUserId(id: any): any {

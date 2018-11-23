@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <form #formCtrl="ngForm">
-    <div align="center" *ngIf="formCtrl.form.valid">
+    <div *ngIf="formCtrl.form.valid">
 
       <h1> Profile</h1>
       <img class="profile-image" src="assets/imgs/profile.jpg">
@@ -33,5 +33,6 @@
 
     </ion-list>
     <button color="secondary" [disabled]="!formCtrl.form.valid" ion-button block (click)="save()">Save</button>
+    <button ion-button block (click)="logout()">LogOut</button>
   </form>
 </ion-content>
