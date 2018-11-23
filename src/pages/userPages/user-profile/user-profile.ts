@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserProvider } from '../../../providers/user/user';
 import { NavController, NavParams } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'page-user-profile',
@@ -11,11 +12,25 @@ export class UserProfilePage {
   dateOfBirth:string;
   id: number;
   age: string;
+  form: FormGroup;
+  isReadyToSave:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider ) {
+  constructor(formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider ) {
     this.id = navParams.data;
     this.getUser();
+    this.form = formBuilder.group({
+      name: ['', Validators.required],
+      surname: [''],
+      email: [''],
+      dateOfBirth:['']
+    });
+
+    // Watch the form for changes, and
+    this.form.valueChanges.subscribe((v) => {
+      this.isReadyToSave = this.form.valid;
+    });
   }
+  
   getUser() {
     return this.userProvider.getUser(this.id).subscribe(
       (data) => {
@@ -29,9 +44,21 @@ export class UserProfilePage {
     );
   }
 
-  reset(){
-  }
   save(){
+    let dataOfUser = {
+      'name' : this.form.value.parentSubforumId,
+      'surname' : this.form.value.title,
+      'email' : this.form.value.description,
+      'dateOfBirth' : this.form.value.dateOfBirth
+      };
+    this.userProvider.setUser(dataOfUser).subscribe(
+      (data) => {
+        console.log("info:" + data);
+      },
+      (error) =>{
+        console.error("error:" + error);
+      });
+    
   }
 
   getAge(dateOfBirth){

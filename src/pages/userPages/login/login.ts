@@ -38,7 +38,7 @@ export class LoginPage {
 
     toast.present();
   }
-  
+
   login(){
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
