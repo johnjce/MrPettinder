@@ -6,7 +6,7 @@ import { ApiurlProvider } from '../apiurl/apiurl';
 
 @Injectable()
 export class CompleteThreadProvider {
-
+  
   constructor(public http: HttpClient, private apiurlProvider: ApiurlProvider ) {
   }
   getThread(id:number): Observable< any > {
@@ -18,6 +18,17 @@ export class CompleteThreadProvider {
       .set('Access-Control-Allow-Credentials', 'true')
       .set('Access-Control-Allow-Origin', 'true')
     }).map(res => res);
+  }
+
+  setMessage(dataOfMessage): Observable< any > {
+      return this.http.post(this.apiurlProvider.getAPIURL()+'/messages/', dataOfMessage, { 
+        headers: new HttpHeaders()
+        .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
+        .set('Content-Type', 'application/json')
+        .set('cache-control', 'no-cache')
+        .set('Access-Control-Allow-Credentials', 'true')
+        .set('Access-Control-Allow-Origin', 'true')
+      }).map(res => res);
   }
 }
 
