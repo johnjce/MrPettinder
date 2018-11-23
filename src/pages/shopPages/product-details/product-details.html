@@ -12,7 +12,7 @@
         <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
         <img [src]="product.imageURL"/>
       </div>
-      <ion-item id="productDetails-list-item-container4">
+      <ion-item id="productDetails-list-item-container4" text-wrap>
         <div id="productDetails-markdown4" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">
             {{product.description}}
@@ -21,7 +21,7 @@
       </ion-item>
       <ion-item color="assertive" id="productDetails-list-item9">
         <ion-icon name="pricetag" item-left></ion-icon>
-        RM {{product.price}}
+        {{product.price}} &euro;
       </ion-item>
     </ion-list>
   </ion-card>
