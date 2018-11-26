@@ -3,7 +3,7 @@
     <ion-title>{{title}}</ion-title>
     <ion-buttons end>
       <button ion-button color="primary" outline icon-only (click)="newThread()">
-        <ion-icon name="md-add-circle"></ion-icon>
+        <ion-icon name="add-circle"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -16,7 +16,7 @@
     <hr>
   </ion-card>
   <ion-list button-outline>
-    <button ion-item md-arrow-dropright *ngFor="let thread of threads | orderBy:'-creationDate'" (click)="openItem(thread.id)">
+    <button ion-item arrow-dropright *ngFor="let thread of threads | orderBy:'-creationDate'" (click)="openItem(thread.id)">
       {{thread.title}} - {{thread.description}}
     </button>
   </ion-list>
