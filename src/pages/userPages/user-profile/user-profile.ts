@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { LoginPage } from '../login/login'
+import { TabsPage } from '../../tabs/tabs';
 
 @Component({
   selector: 'page-user-profile',
@@ -17,10 +18,14 @@ export class UserProfilePage {
   formCtrl: FormGroup;
   password: any;
   username: any;
+  isLogged:boolean = false;
 
   constructor(formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider ) {
     this.id = navParams.data;
-    if(this.id) this.getUser();
+    if(this.id){
+      this.getUser();
+      this.isLogged=true;
+    }
     this.formCtrl = formBuilder.group({
       name: ['', Validators.required],
       surname: [''],
@@ -47,7 +52,6 @@ export class UserProfilePage {
   }
 
   save(){
-    console.log(this.formCtrl);
     let dataOfUser = {
         'username':this.formCtrl.value.username,
         'password':this.formCtrl.value.password,
@@ -58,14 +62,21 @@ export class UserProfilePage {
           'dateOfBirth' : this.formCtrl.value.dateOfBirth
         }
       };
-    this.userProvider.setUser(dataOfUser).subscribe(
-      (data) => {
-        console.log("info:" + data);
-      },
-      (error) =>{
-        console.error("error:" + error.message);
-      }
-    );
+    if(this.isLogged){
+      this.userProvider.updateUser(dataOfUser);
+      console.log("true");
+    } else {
+      this.userProvider.setUser(dataOfUser).subscribe(
+        (data) => {
+          console.log(data);
+          this.userProvider.login(this.formCtrl.value.username,this.formCtrl.value.password);
+          this.navCtrl.setRoot(TabsPage);
+        },
+        (error) =>{
+          console.error(error);
+        }
+      );
+    }
   }
 
   getAge(dateOfBirth){

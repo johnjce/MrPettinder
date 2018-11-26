@@ -30,21 +30,11 @@ export class UserProvider {
     return this.http.get(this.apiurlProvider.getAPIURL()+'/vets').map(res => res);
   }
 
-  setUser(dataOfUser): Observable< any > {
-      return this.http.post(this.apiurlProvider.getAPIURL()+'/users/', dataOfUser, { 
-        headers: new HttpHeaders()
-        .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
-        .set('Content-Type', 'application/json')
-        .set('cache-control', 'no-cache')
-        .set('Access-Control-Allow-Credentials', 'true')
-        .set('Access-Control-Allow-Origin', 'true')
-      }).map(res => res);
-  }
-
+  
   login(username, password): Observable< any > {
     this.apiurlProvider.setAutorization(btoa(username + ":" + password));
     this.username = username;
-    return this.http.get(this.apiurlProvider.getAPIURL()+'/users',{ 
+    return this.http.get(this.apiurlProvider.getAPIURL()+'/users/'+username,{ 
       headers: new HttpHeaders()
       .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
       .set('Content-Type', 'application/json')
@@ -57,11 +47,7 @@ export class UserProvider {
   logout(){
     this.apiurlProvider.setAutorization("");
   }
-
-  setUserId(id: any): any {
-    throw new Error("Method not implemented.");
-  }
-
+  
   updateUser(dataOfUser): Observable< any > {
     return this.http.put(this.apiurlProvider.getAPIURL()+'/users/', dataOfUser, { 
       headers: new HttpHeaders()
@@ -71,5 +57,16 @@ export class UserProvider {
       .set('Access-Control-Allow-Credentials', 'true')
       .set('Access-Control-Allow-Origin', 'true')
     }).map(res => res);
-}
+  }
+
+  setUser(dataOfUser): Observable< any > {
+    return this.http.post(this.apiurlProvider.getAPIURL()+'/users/', dataOfUser, { 
+      headers: new HttpHeaders()
+      .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
+      .set('Content-Type', 'application/json')
+      .set('cache-control', 'no-cache')
+      .set('Access-Control-Allow-Credentials', 'true')
+      .set('Access-Control-Allow-Origin', 'true')
+    }).map(res => res);
+  }
 }

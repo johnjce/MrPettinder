@@ -37,9 +37,9 @@ export class ChatRoomPage {
   }
 
   scrollToBottom() {
-    /*setTimeout(() => {
+    setTimeout(() => {
       this.content.scrollToBottom(300);
-    });*/
+    });
   }
 
 

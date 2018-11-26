@@ -25,7 +25,6 @@ export class ListVetsPage {
     this.userProvider.getVeterinarians().subscribe(
       (data) => {
         this.veterinarians = data;
-        console.log(data);
       },
       (error) =>{
         console.error(error);
@@ -38,7 +37,7 @@ export class ListVetsPage {
   }
 
   payMinutes(){
-    let message: string ='pendiente de lanzar pago a paypal';
+    let message: string =this.timeAvailable + ' minutes availables, (call to pay method)';
     const toast = this.toastCtrl.create({
       message,
       duration: 5000,
