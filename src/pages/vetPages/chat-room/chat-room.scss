@@ -1,4 +1,13 @@
 page-chat-room {
+  ion-buttons, .bar-button-menutoggle {
+    z-index: 99;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    margin-right: 10%;
+    margin-bottom: 14px;
+    margin-top: -4px;
+    margin-left: -278px;
+  }
   .item-inner{
     border-bottom: 0.55px solid rgba(200, 199, 204, 0);
   }
