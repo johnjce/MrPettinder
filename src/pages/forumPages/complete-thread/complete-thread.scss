@@ -1,0 +1,29 @@
+page-complete-thread {
+    ion-item {
+        height: auto;
+    }
+
+    .card h2 {
+        font-size: 2.4rem;
+        text-align: center;
+        background-color: steelblue;
+        color: whitesmoke;
+        margin: 0px;
+        font-size: 1.6rem;
+        text-transform: capitalize;
+        font-style: italic;
+        font-weight: bold;
+        padding: 2% 0px 2% 0px;
+    }
+    
+    .card p {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: normal;
+        line-height: 1.5;
+        color: #222;
+        padding: 0 3% 0 3%;
+        text-transform: capitalize;
+    }
+
+}

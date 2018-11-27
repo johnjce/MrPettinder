@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons end>
+      <button ion-button color="primary" outline icon-only (click)="newThread()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <h2>{{title}} </h2><br>
+    <p>{{description}} </p><br>
+    <hr>
+  </ion-card>
+  <ion-list button-outline>
+    <button ion-item arrow-dropright *ngFor="let thread of threads | orderBy:'-creationDate'" (click)="openItem(thread.id)">
+      {{thread.title}} - {{thread.description}}
+    </button>
+  </ion-list>
+</ion-content>

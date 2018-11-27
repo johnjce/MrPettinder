@@ -1,18 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the ApiurlProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ApiurlProvider {
-
+  private autorization: string="";
   constructor(public http: HttpClient) {}
   getAPIURL(){
-    return "http://3d2208cc.ngrok.io";
+    return "http://localhost:8080";
+  }
+  
+  getAutorization(): any {
+    return this.autorization;
   }
 
+  setAutorization(autorization){
+    this.autorization = autorization;
+  }
 }

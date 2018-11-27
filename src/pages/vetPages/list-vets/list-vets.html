@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Available Veterinarians</ion-title>
+    <ion-buttons end>
+      <button ion-button color="primary" outline icon-only (click)="payMinutes()">
+        <ion-icon name="md-clock"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+  
+<ion-content padding >
+  <ion-list button-outline md-arrow-dropright>
+    <div *ngFor="let vets of veterinarians">
+      <div *ngIf="!vets.available">
+        <button ion-item disabled>{{vets.profile.name}}</button>
+      </div>
+      <div *ngIf="vets.available">
+        <button ion-item (click)="openItem(vets)">{{vets.profile.name}} - <ion-icon name="chatbubbles"></ion-icon></button>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>

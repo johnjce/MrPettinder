@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>New Thread</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Title:</ion-label>
+        <ion-input formControlName="title" type="text" [(ngModel)]="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Description:</ion-label>
+        <ion-input formControlName="description" type="text" [(ngModel)]="description"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!myForm.valid">Guardar</button>
+    </div>
+  </form>
+</ion-content>

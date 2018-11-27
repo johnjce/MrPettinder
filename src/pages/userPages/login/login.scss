@@ -1,0 +1,42 @@
+page-login {
+
+    .image-logo{
+        border-radius: 50%;
+        -webkit-box-shadow: 3px 7px 10px grey;
+        box-shadow: 3px 7px 10px grey;
+        border: 3px solid white;
+        width: 140px;
+        height: 140px;
+        background-color: ivory;
+    }
+    
+    .btn{
+        border:3px solid white ;
+        box-shadow: 3px 4px 3px gainsboro;
+        
+    }
+   
+
+    .bg{
+        background-image: url('../../../assets/imgs/logo.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .content-center>*{
+        display: flex;
+        align-content: center !important;
+        align-items: center !important;
+
+    }
+
+    .card-ios, .card-md {
+        background: transparent;
+        box-shadow : none ;
+    }
+
+    
+
+    
+
+}

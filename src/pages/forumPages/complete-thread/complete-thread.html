@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+      <h2>{{title}} </h2><br>
+      <p>{{description}} </p><br>
+      <hr>
+    </ion-card>
+  
+  <ion-card *ngFor="let thread of completeThread | orderBy:'-lastEditDate'">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="https://picsum.photos/20/20/?image=849">
+      </ion-avatar>
+      <h2>{{thread.writtenBy}}</h2>
+      <p>{{thread.lastEditDate | date:'dd/MM/yyyy HH:mm'}}</p>
+
+    </ion-item>
+    <ion-card-content>
+      {{thread.content}}
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>6</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-right clear small>
+          <h3>Answer</h3>
+          <ion-icon name="share-alt"></ion-icon>
+          <div>6</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <form [formGroup]="myForm" (ngSubmit)="saveData()">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Replay message:</ion-label>
+        <ion-input formControlName="content" type="text" [(ngModel)]="content"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!myForm.valid"><ion-icon name="share-alt"></ion-icon>Replay</button>
+    </div>
+  </form>
+</ion-content>
