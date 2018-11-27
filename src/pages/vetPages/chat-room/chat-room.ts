@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import { Content } from 'ionic-angular';
 import { NavController, NavParams } from 'ionic-angular';
-import { AngularFireDatabase } from '@angular/fire/database';
+//import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'page-chat-room',
@@ -19,7 +19,8 @@ export class ChatRoomPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public fireDb: AngularFireDatabase) {
+              //public fireDb: AngularFireDatabase
+              ) {
     this.userName = this.navParams.get('userName');/*
     this._chatSubscription = this.fireDb.list('chat').subscribe(data => {
       this.messages = data;
@@ -34,18 +35,18 @@ export class ChatRoomPage {
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad ChatPage');
-    this.fireDb.list('/chat').push({
+    /*this.fireDb.list('/chat').push({
       specialMessage: true,
       message: `${this.userName} has joined the room`
-    })
+    })*/
   }
 
   ionViewWillLeave() {
-    this._chatSubscription.unsubscribe();
+    /*this._chatSubscription.unsubscribe();
     this.fireDb.list('/chat').push({
       specialMessage: true,
       message: `${this.userName} has left the room`
-    })
+    })*/
     this.scrollToBottom();
   }
 
