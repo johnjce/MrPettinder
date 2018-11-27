@@ -34,6 +34,17 @@ import { UserProvider } from '../providers/user/user';
 
 import { ListVetsPage } from '../pages/vetPages/list-vets/list-vets';
 import { ChatRoomPage } from '../pages/vetPages/chat-room/chat-room';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBIV-T7FKg8WAbsDmqBfMKhoAwfBMxwwP8",
+  authDomain: "ionic-chat-bot.firebaseapp.com",
+  databaseURL: "https://ionic-chat-bot.firebaseio.com",
+  projectId: "ionic-chat-bot",
+  storageBucket: "ionic-chat-bot.appspot.com",
+  messagingSenderId: "623882371928"
+};
 
 @NgModule({
   declarations: [
@@ -60,7 +71,9 @@ import { ChatRoomPage } from '../pages/vetPages/chat-room/chat-room';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
