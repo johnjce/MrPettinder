@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Available Veterinarians</ion-title>
+    <ion-title>Veterinarians</ion-title>
     <ion-buttons end>
       <button ion-button color="primary" outline icon-only (click)="payMinutes()">
         <ion-icon name="md-clock"></ion-icon>
@@ -10,6 +10,16 @@
 </ion-header>
   
 <ion-content padding >
+  <ion-card>
+    <ion-card-header>
+      Buying services info
+    </ion-card-header>
+    <ion-card-content>
+      Hello! Here you can talk directly with a veterinarian to ask everything you want.
+      This service needs minutes you can buy.
+      5min X 10€
+    </ion-card-content>
+  </ion-card>
   <ion-list button-outline md-arrow-dropright>
     <div *ngFor="let vets of veterinarians">
       <div *ngIf="!vets.available">

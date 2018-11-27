@@ -36,6 +36,8 @@ import { ListVetsPage } from '../pages/vetPages/list-vets/list-vets';
 import { ChatRoomPage } from '../pages/vetPages/chat-room/chat-room';
 import { VetProfilePage } from '../pages/vetPages/vet-profile/vet-profile';
 import { YourTimePage } from '../pages/vetPages/your-time/your-time';
+import { PacientsPage } from '../pages/userPages/pacients/pacients';
+import { InformPage } from '../pages/userPages/inform/inform';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { YourTimePage } from '../pages/vetPages/your-time/your-time';
     ChatRoomPage,
     VetProfilePage,
     YourTimePage,
+    PacientsPage,
+    InformPage,
 
     OrdersPage,
     DashboardPage,
@@ -80,6 +84,8 @@ import { YourTimePage } from '../pages/vetPages/your-time/your-time';
     ChatRoomPage,
     VetProfilePage,
     YourTimePage,
+    PacientsPage,
+    InformPage,
 
     OrdersPage,
     DashboardPage,
