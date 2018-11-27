@@ -8,7 +8,6 @@
     <ion-card>
       <h2>{{title}} </h2><br>
       <p>{{description}} </p><br>
-      <hr>
     </ion-card>
   
   <ion-card *ngFor="let thread of completeThread | orderBy:'-lastEditDate'">

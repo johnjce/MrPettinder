@@ -33,21 +33,21 @@ export class ChatRoomPage {
     })*/
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad() {/*
     //console.log('ionViewDidLoad ChatPage');
     /*this.fireDb.list('/chat').push({
       specialMessage: true,
       message: `${this.userName} has joined the room`
     })*/
   }
-
-  ionViewWillLeave() {
-    /*this._chatSubscription.unsubscribe();
+  
+  ionViewWillLeave() {/*
+    this._chatSubscription.unsubscribe();
     this.fireDb.list('/chat').push({
       specialMessage: true,
       message: `${this.userName} has left the room`
-    })*/
-    this.scrollToBottom();
+    })
+    this.scrollToBottom();*/
   }
 
   sendMessage() {/*
