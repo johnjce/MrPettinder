@@ -74,14 +74,10 @@ Estructura de ficheros en la app
 	* providers                       ->donde se definen todas las llamadas a el backend
 		* apiurl                      ->donde se define la url del backend
 			* .ts                     ->se sirve a todos los metodos la autorizacion (key que se pone en headers)
-		* complete-thread             ->     (pendiente de meter solo en uno, lo hago yo)
-			* .ts                     ->     (pendiente de meter solo en uno, lo hago yo)
-		* subforums                   ->     (pendiente de meter solo en uno, lo hago yo)
-			* .ts                     ->     (pendiente de meter solo en uno, lo hago yo)
-		* threads                     ->     (pendiente de meter solo en uno, lo hago yo)
-			* .ts                     ->     (pendiente de meter solo en uno, lo hago yo)
+		* subforums                   ->donde se hacen las peticiones al backend 
+			* .ts                     -> se definen las funciones de subforos
 		* user                        ->donde se hacen las peticiones al backend 
-			* .ts                     -> se definen las funciones 
+			* .ts                     -> se definen las funciones de usuarios
 	* etc
 
 License

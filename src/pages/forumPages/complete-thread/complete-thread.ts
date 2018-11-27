@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { CompleteThreadProvider } from '../../../providers/complete-thread/complete-thread';
+import { SubforumsProvidersProvider } from '../../../providers/subforums/subforums';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -17,7 +17,7 @@ export class CompleteThreadPage {
   
   description:string="";
 
-  constructor(public formBuilder:FormBuilder,public navCtrl: NavController, public navParams: NavParams, private completeThreadProvider: CompleteThreadProvider) {
+  constructor(public formBuilder:FormBuilder,public navCtrl: NavController, public navParams: NavParams, private completeThreadProvider: SubforumsProvidersProvider) {
       this.id = navParams.data;
       this.myForm = this.createMyForm();
       this.getThread();

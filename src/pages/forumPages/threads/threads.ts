@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ThreadsProvider } from '../../../providers/threads/threads';
+import { SubforumsProvidersProvider } from '../../../providers/subforums/subforums';
 import { CompleteThreadPage } from '../complete-thread/complete-thread';
 import { ThreadCrudPage } from '../thread-crud/thread-crud';
 
@@ -14,7 +14,7 @@ export class ThreadsPage {
   threads: any[] = [];
   title:string="";
   description:string="";
-  constructor(public navCtrl: NavController, public navParams: NavParams, private threadsProvider: ThreadsProvider ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private threadsProvider: SubforumsProvidersProvider ) {
     this.id = navParams.data;
     this.getAllThreads();
   }
