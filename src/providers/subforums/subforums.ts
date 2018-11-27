@@ -25,4 +25,48 @@ export class SubforumsProvidersProvider {
   getLoggedUser(){
     this.userProvider.getLoggedUser();
   }
+
+  getThreads(id:number): Observable< any > {
+    return this.http.get(this.apiurlProvider.getAPIURL()+'/subforums/'+id, { 
+      headers: new HttpHeaders()
+      .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
+      .set('Content-Type', 'application/json')
+      .set('cache-control', 'no-cache')
+      .set('Access-Control-Allow-Credentials', 'true')
+      .set('Access-Control-Allow-Origin', 'true')
+    }).map(res => res);
+  }
+  
+  setThread(body:any) : Observable< any > {
+    return this.http.post(this.apiurlProvider.getAPIURL()+'/threads/', body, { 
+      headers: new HttpHeaders()
+      .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
+      .set('Content-Type', 'application/json')
+      .set('cache-control', 'no-cache')
+      .set('Access-Control-Allow-Credentials', 'true')
+      .set('Access-Control-Allow-Origin', 'true')
+    }).map(res => res);
+  }
+
+  getThread(id:number): Observable< any > {
+    return this.http.get(this.apiurlProvider.getAPIURL()+'/threads/'+id, { 
+      headers: new HttpHeaders()
+      .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
+      .set('Content-Type', 'application/json')
+      .set('cache-control', 'no-cache')
+      .set('Access-Control-Allow-Credentials', 'true')
+      .set('Access-Control-Allow-Origin', 'true')
+    }).map(res => res);
+  }
+
+  setMessage(dataOfMessage): Observable< any > {
+      return this.http.post(this.apiurlProvider.getAPIURL()+'/messages/', dataOfMessage, { 
+        headers: new HttpHeaders()
+        .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
+        .set('Content-Type', 'application/json')
+        .set('cache-control', 'no-cache')
+        .set('Access-Control-Allow-Credentials', 'true')
+        .set('Access-Control-Allow-Origin', 'true')
+      }).map(res => res);
+  }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ThreadsProvider } from '../../../providers/threads/threads';
+import { SubforumsProvidersProvider } from '../../../providers/subforums/subforums';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ThreadsPage } from '../threads/threads'
@@ -18,7 +18,7 @@ export class ThreadCrudPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private threadsProvider: ThreadsProvider,
+              private threadsProvider: SubforumsProvidersProvider,
               public formBuilder: FormBuilder ){
     this.id = navParams.data;
     this.myForm = this.createMyForm();

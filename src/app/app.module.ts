@@ -29,8 +29,6 @@ import { AddNewPage } from '../pages/shopPages/add-new/add-new';
 
 import { HttpClientModule } from '@angular/common/http';
 import { SubforumsProvidersProvider } from '../providers/subforums/subforums';
-import { ThreadsProvider } from '../providers/threads/threads';
-import { CompleteThreadProvider } from '../providers/complete-thread/complete-thread';
 import { ApiurlProvider } from '../providers/apiurl/apiurl';
 import { UserProvider } from '../providers/user/user';
 
@@ -96,8 +94,6 @@ import { YourTimePage } from '../pages/vetPages/your-time/your-time';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SubforumsProvidersProvider,
-    ThreadsProvider,
-    CompleteThreadProvider,
     ApiurlProvider,
     UserProvider
   ]
