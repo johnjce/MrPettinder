@@ -19,12 +19,8 @@ export class ChatRoomPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-<<<<<<< HEAD
-             ) {
-=======
               //public fireDb: AngularFireDatabase
               ) {
->>>>>>> 12db2d8287639eadb089fe9670d120e993cdc657
     this.userName = this.navParams.get('userName');/*
     this._chatSubscription = this.fireDb.list('chat').subscribe(data => {
       this.messages = data;
@@ -44,8 +40,7 @@ export class ChatRoomPage {
       message: `${this.userName} has joined the room`
     })*/
   }
-
-<<<<<<< HEAD
+  
   ionViewWillLeave() {/*
     this._chatSubscription.unsubscribe();
     this.fireDb.list('/chat').push({
@@ -53,15 +48,6 @@ export class ChatRoomPage {
       message: `${this.userName} has left the room`
     })
     this.scrollToBottom();*/
-=======
-  ionViewWillLeave() {
-    /*this._chatSubscription.unsubscribe();
-    this.fireDb.list('/chat').push({
-      specialMessage: true,
-      message: `${this.userName} has left the room`
-    })*/
-    this.scrollToBottom();
->>>>>>> 12db2d8287639eadb089fe9670d120e993cdc657
   }
 
   sendMessage() {/*
