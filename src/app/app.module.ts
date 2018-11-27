@@ -6,7 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { OrderByPipe } from './order-by-pipe';
-
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { UserProfilePage } from '../pages/userPages/user-profile/user-profile';
@@ -34,6 +33,11 @@ import { UserProvider } from '../providers/user/user';
 
 import { ListVetsPage } from '../pages/vetPages/list-vets/list-vets';
 import { ChatRoomPage } from '../pages/vetPages/chat-room/chat-room';
+import { VetProfilePage } from '../pages/vetPages/vet-profile/vet-profile';
+import { YourTimePage } from '../pages/vetPages/your-time/your-time';
+import { PacientsPage } from '../pages/userPages/pacients/pacients';
+import { InformPage } from '../pages/userPages/inform/inform';
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
@@ -59,6 +63,10 @@ const firebaseConfig = {
     ThreadCrudPage,
     ListVetsPage,
     ChatRoomPage,
+    VetProfilePage,
+    YourTimePage,
+    PacientsPage,
+    InformPage,
 
     OrdersPage,
     DashboardPage,
@@ -87,6 +95,10 @@ const firebaseConfig = {
     ThreadCrudPage,
     ListVetsPage,
     ChatRoomPage,
+    VetProfilePage,
+    YourTimePage,
+    PacientsPage,
+    InformPage,
 
     OrdersPage,
     DashboardPage,
