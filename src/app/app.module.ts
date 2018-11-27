@@ -38,7 +38,6 @@ import { YourTimePage } from '../pages/vetPages/your-time/your-time';
 import { PacientsPage } from '../pages/userPages/pacients/pacients';
 import { InformPage } from '../pages/userPages/inform/inform';
 
-<<<<<<< HEAD
 /*import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
@@ -50,8 +49,6 @@ const firebaseConfig = {
   storageBucket: "ionic-chat-bot.appspot.com",
   messagingSenderId: "623882371928"
 };*/
-=======
->>>>>>> 0ab4a40c04e53a187d3f88bea5148afd1f7c5251
 
 @NgModule({
   declarations: [
@@ -83,11 +80,8 @@ const firebaseConfig = {
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp)
-<<<<<<< HEAD
     /*,AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,*/
-=======
->>>>>>> 0ab4a40c04e53a187d3f88bea5148afd1f7c5251
   ],
   bootstrap: [IonicApp],
   entryComponents: [
