@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 //import { ListVetsPage } from '../vetPages/list-vets/list-vets';
 import { HomePage } from '../forumPages/home/home';
 import { ProductsPage } from '../shopPages/products/products';
-import { InformPage } from '../userPages/inform/inform';
+import { VetProfilePage } from '../vetPages/vet-profile/vet-profile';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -11,7 +11,7 @@ import { InformPage } from '../userPages/inform/inform';
 export class TabsPage {
 
   
-  tab1Root = InformPage;
+  tab1Root = VetProfilePage;
   tab2Root = HomePage;
   tab3Root = ProductsPage;
 
