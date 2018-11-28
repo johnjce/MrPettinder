@@ -13,31 +13,20 @@ import { ChatRoomPage } from '../chat-room/chat-room';
 
 export class ListVetsPage {
 
-  veterinariansChat: Friend[] = [];
+  veterinariansChat: any[] = [];
   timeAvailable: any;
-  veterinarians: any;
 
   constructor(public menuCtrl: MenuController, 
     public http:HttpProvider, 
     public navCtrl:NavController, 
     public userProvider:UserProvider,
     public navParams:NavParams,
-    private readonly toastCtrl: ToastController  ) {
-      this.getAllVets();
-      this.timeAvailable = this.userProvider.getTimeAvailable();
-  }
+    private readonly toastCtrl: ToastController  ) {}
 
   ionViewDidLoad() {
     this.menuCtrl.enable(true);
-    this.http.get('friends.json').subscribe((friends) => {
-      this.veterinariansChat = <Friend[]>friends;
-    }, (err) => {
-      console.error(err);
-    });
-  }
-
-  goToProfileFriend(sliding, friend: Friend) {
-    sliding.close();
+    this.getAllVets();
+    this.timeAvailable = this.userProvider.getTimeAvailable();
   }
 
   goToChatRoom(friend: Friend) {
@@ -53,13 +42,16 @@ export class ListVetsPage {
         position: 'center'
       }
     );
-
+      toast.present();
   }
 
   getAllVets() {
     this.userProvider.getVeterinarians().subscribe(
       (data) => {
-        this.veterinarians = data;
+        data.forEach(vet => {
+          let vete = {"username":vet.username,"name":vet.profile.name,"avatar": "Raouf.png"};
+          this.veterinariansChat.push(vete);
+        });
       },
       (error) =>{
         console.error(error);

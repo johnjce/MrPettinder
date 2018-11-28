@@ -1,8 +1,8 @@
 export class Friend {
   username: string = '';
-  fullname: string = '';
+  profile: string = '';
   avatar: string = '';
-  email: string = '';
+  available: boolean = false;
 }
 
 export class User {

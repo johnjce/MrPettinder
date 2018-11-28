@@ -20,7 +20,7 @@ page-login {
    
 
     .bg{
-        background-image: url('../../../assets/imgs/logo.png');
+        background-image: url('../../../assets/imgs/bg.jpg');
         background-size: cover;
         background-repeat: no-repeat;
     }
@@ -35,9 +35,12 @@ page-login {
     .card-ios, .card-md {
         background: transparent;
         box-shadow : none ;
+        padding-top: 30%;
     }
 
-    
+    .scroll-content{
+        background-image: none;
+    }
 
     
 

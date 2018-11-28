@@ -25,15 +25,11 @@ export class ChatRoomPage {
     public http:HttpProvider, 
     public navCtrl:NavController, 
     public navParams:NavParams,
-    private menuCtrl:MenuController ) {
-
-      console.log(this.navParams);
-  }
+    private menuCtrl:MenuController ) { }
 
   ionViewDidLoad() {
     this.isLoading = true;
     this.messages = this.msgMocks.items;
-    console.log(this.messages);
     this.friend = this.navParams.get('friend');
     forkJoin(
       this.http.get('my-profile.json')

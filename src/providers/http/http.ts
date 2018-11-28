@@ -7,11 +7,13 @@ export class HttpProvider {
   url: string = './assets/mocks/';
 
   constructor(public http: HttpClient) {
-    console.log('Hello HttpProvider Provider');
   }
 
   get(path: string) {
     return this.http.get(this.url + path);
   }
 
+  put(path: string, vetProfile:any){
+    return this.http.post(this.url + path, vetProfile);
+  }
 }
