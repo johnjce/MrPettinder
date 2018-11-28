@@ -3,11 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs';
 import { ApiurlProvider } from '../apiurl/apiurl';
+import {User} from "../../models/user";
 
 @Injectable()
 export class UserProvider {
   public data;
-  
+  private _user:User = new User();
   error: string;
   username: any;
   timeAvailable:any = 100;
@@ -68,5 +69,13 @@ export class UserProvider {
       .set('Access-Control-Allow-Credentials', 'true')
       .set('Access-Control-Allow-Origin', 'true')
     }).map(res => res);
+  }
+
+  get user():User {
+    return this._user;
+  }
+
+  set user(value:User) {
+    this._user = value;
   }
 }

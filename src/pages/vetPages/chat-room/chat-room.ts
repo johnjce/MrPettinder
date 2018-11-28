@@ -1,7 +1,11 @@
 import {Component, ViewChild} from '@angular/core';
+import {NavController, NavParams, MenuController} from 'ionic-angular';
+import {Friend, User} from "../../../models/user";
+import {HttpProvider} from "../../../providers/http/http";
+import {forkJoin} from 'rxjs/observable/forkJoin';
+import { MessageMocks } from "../../../mocks/messageMocks";
+import { Message } from "../../../models/message";
 import { Content } from 'ionic-angular';
-import { NavController, NavParams } from 'ionic-angular';
-//import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'page-chat-room',
@@ -11,61 +15,53 @@ import { NavController, NavParams } from 'ionic-angular';
 export class ChatRoomPage {
 
   @ViewChild(Content) content: Content;
+  private friend:Friend = new Friend();
+  private myProfile:User = new User();
+  private messages;
+  private input: string = '';
+  private isLoading: boolean = true;
 
-  userName: string = '';
-  message: string = '';
-  messages: object[] = [];
-  _chatSubscription; //FirebaseListObservable<any[]>;
+  constructor(public msgMocks:MessageMocks, 
+    public http:HttpProvider, 
+    public navCtrl:NavController, 
+    public navParams:NavParams,
+    private menuCtrl:MenuController ) {
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              //public fireDb: AngularFireDatabase
-              ) {
-    this.userName = this.navParams.get('userName');/*
-    this._chatSubscription = this.fireDb.list('chat').subscribe(data => {
-      this.messages = data;
-      // data.map(elem => {
-      //   this.messages.push(elem);
-      // })
-      setTimeout(() => {
-        this.scrollToBottom();
-      },300)
-    })*/
+      console.log(this.navParams);
   }
 
-  ionViewDidLoad() {/*
-    //console.log('ionViewDidLoad ChatPage');
-    /*this.fireDb.list('/chat').push({
-      specialMessage: true,
-      message: `${this.userName} has joined the room`
-    })*/
-  }
-  
-  ionViewWillLeave() {/*
-    this._chatSubscription.unsubscribe();
-    this.fireDb.list('/chat').push({
-      specialMessage: true,
-      message: `${this.userName} has left the room`
-    })
-    this.scrollToBottom();*/
+  ionViewDidLoad() {
+    this.isLoading = true;
+    this.messages = this.msgMocks.items;
+    console.log(this.messages);
+    this.friend = this.navParams.get('friend');
+    forkJoin(
+      this.http.get('my-profile.json')
+    ).subscribe(([profile]) => {
+      this.isLoading = false;
+      this.myProfile = <User>profile;
+    });
   }
 
-  sendMessage() {/*
-    if ( this.message !== null && this.message !== "") {
-      this.fireDb.list('/chat').push({
-        userName: this.userName,
-        message: this.message
-      }).then(() => {
-        this.scrollToBottom();
-      }).catch(() => {
-
-      })
-    }
-    this.message = '';*/
+  ionViewWillEnter(): void {
+    this.scrollToBottom();
   }
 
   scrollToBottom() {
-    this.content.scrollToBottom(100);
+    setTimeout(() => {
+      this.content.scrollToBottom(300);
+    });
   }
 
+  doSend() {
+    if(this.input.length > 0) {
+      let message: Message = new Message();
+      message.to = this.friend.username;
+      message.from = 'me';
+      message.content = this.input;
+      this.msgMocks.add(message);
+      this.scrollToBottom();
+      this.input = '';
+    }
+  }
 }
