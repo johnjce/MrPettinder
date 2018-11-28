@@ -6,7 +6,7 @@ export class ApiurlProvider {
   private autorization: string="";
   constructor(public http: HttpClient) {}
   getAPIURL(){
-    return "http://339ee7ae.ngrok.io";
+    return "http://5b96c6cf.ngrok.io";
   }
   
   getAutorization(): any {
