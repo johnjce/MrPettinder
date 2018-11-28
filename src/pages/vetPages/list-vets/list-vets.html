@@ -20,14 +20,15 @@
       5min X 10€
     </ion-card-content>
   </ion-card>
-  <ion-list button-outline md-arrow-dropright>
-    <div *ngFor="let vets of veterinarians">
-      <div *ngIf="!vets.available">
-        <button ion-item disabled>{{vets.profile.name}}</button>
-      </div>
-      <div *ngIf="vets.available">
-        <button ion-item (click)="openItem(vets)">{{vets.profile.name}} - <ion-icon name="chatbubbles"></ion-icon></button>
-      </div>
-    </div>
+
+
+  <ion-list>
+    <ion-item-sliding #sliding *ngFor="let friend of veterinariansChat">
+      <ion-item (click)="goToChatRoom(friend)">
+        <h2>{{ friend.fullname }} <span ion-text color="primary">({{ friend.username }})</span></h2>
+      </ion-item>
+    </ion-item-sliding>
   </ion-list>
+
+
 </ion-content>

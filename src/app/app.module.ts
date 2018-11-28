@@ -30,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SubforumsProvidersProvider } from '../providers/subforums/subforums';
 import { ApiurlProvider } from '../providers/apiurl/apiurl';
 import { UserProvider } from '../providers/user/user';
+import { HttpProvider } from '../providers/http/http'
 
 import { ListVetsPage } from '../pages/vetPages/list-vets/list-vets';
 import { ChatRoomPage } from '../pages/vetPages/chat-room/chat-room';
@@ -38,17 +39,15 @@ import { YourTimePage } from '../pages/vetPages/your-time/your-time';
 import { PacientsPage } from '../pages/userPages/pacients/pacients';
 import { InformPage } from '../pages/userPages/inform/inform';
 
-/*import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBIV-T7FKg8WAbsDmqBfMKhoAwfBMxwwP8",
-  authDomain: "ionic-chat-bot.firebaseapp.com",
-  databaseURL: "https://ionic-chat-bot.firebaseio.com",
-  projectId: "ionic-chat-bot",
-  storageBucket: "ionic-chat-bot.appspot.com",
-  messagingSenderId: "623882371928"
-};*/
+
+import { IonicStorageModule, Storage } from '@ionic/storage';
+//import { Camera } from '@ionic-native/camera';
+
+import { Items } from '../mocks/providers/items';
+import { MessageMocks } from '../mocks/messageMocks';
+import { IonicPageModule } from 'ionic-angular';
+//import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -79,9 +78,10 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
-    /*,AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,*/
+    IonicModule.forRoot(MyApp),
+    IonicPageModule.forChild(ListVetsPage),
+    IonicPageModule.forChild(ChatRoomPage),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -114,7 +114,12 @@ const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SubforumsProvidersProvider,
     ApiurlProvider,
-    UserProvider
+    UserProvider,
+    HttpProvider,
+    Items,
+    MessageMocks,
+    HttpProvider,
+
   ]
 })
 export class AppModule {}

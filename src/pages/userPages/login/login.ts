@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { UserProvider } from '../../../providers/user/user';
 import { UserProfilePage } from '../user-profile/user-profile'
+import { User } from '../../../models/user';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -47,6 +48,13 @@ export class LoginPage {
     .subscribe(
       (data) => {
         loading.dismiss();
+        this.userProvider.user = <User>{
+          "username": data.username,
+          "fullname": data.profile.name,
+          "email": data.profile.email,
+          "avatar": "Raouf.png",
+          "password": this.password
+        };
         this.navCtrl.setRoot(TabsPage);
       },
       (error) =>{
