@@ -9,42 +9,42 @@ export class MessageMocks {
     let items = [
       {
         "from": "me",
-        "to": "krod",
+        "to": "vet7",
         "content": "Hello",
         "time": new Date()
       },
       {
-        "from": "krod",
+        "from": "vet7",
         "to": "me",
         "content": "Hi how are you ?",
         "time": new Date()
       },
       {
         "from": "me",
-        "to": "krod",
+        "to": "vet7",
         "content": "Fine",
         "time": new Date()
       },
       {
         "from": "me",
-        "to": "krod",
+        "to": "vet7",
         "content": "And you ?",
         "time": new Date()
       },
       {
-        "from": "krod",
+        "from": "vet7",
         "to": "me",
         "content": "Good",
         "time": new Date()
       },
       {
         "from": "me",
-        "to": "woods",
+        "to": "vet8",
         "content": "Hi",
         "time": new Date()
       },
       {
-        "from": "kay",
+        "from": "vet3",
         "to": "me",
         "content": "Hi",
         "time": new Date()
@@ -56,25 +56,25 @@ export class MessageMocks {
         "time": new Date()
       },
       {
-        "from": "harodez",
+        "from": "vet4",
         "to": "me",
         "content": "Hi",
         "time": new Date()
       },
       {
-        "from": "eam",
+        "from": "vet5",
         "to": "me",
         "content": "Hi",
         "time": new Date()
       },
       {
-        "from": "paden",
+        "from": "vet6",
         "to": "me",
         "content": "Hi",
         "time": new Date()
       },
       {
-        "from": "woods",
+        "from": "vet8",
         "to": "me",
         "content": "Hi",
         "time": new Date()

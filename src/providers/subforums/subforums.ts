@@ -21,7 +21,9 @@ export class SubforumsProvidersProvider {
       .set('Access-Control-Allow-Origin', 'true')
     }).map(res => res);
   }
-
+  getImage(): Observable< any > {
+    return this.http.get('https://source.unsplash.com/random').map(res => res);
+  }
   getLoggedUser(){
     this.userProvider.getLoggedUser();
   }

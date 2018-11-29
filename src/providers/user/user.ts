@@ -32,10 +32,10 @@ export class UserProvider {
   }
 
   
-  login(username, password): Observable< any > {
+  login(username, password, ruta): Observable< any > {
     this.apiurlProvider.setAutorization(btoa(username + ":" + password));
     this.username = username;
-    return this.http.get(this.apiurlProvider.getAPIURL()+'/users/'+username,{ 
+    return this.http.get(this.apiurlProvider.getAPIURL()+ruta+username,{ 
       headers: new HttpHeaders()
       .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
       .set('Content-Type', 'application/json')

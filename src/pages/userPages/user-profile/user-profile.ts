@@ -69,7 +69,7 @@ export class UserProfilePage {
       this.userProvider.setUser(dataOfUser).subscribe(
         (data) => {
           console.log(data);
-          this.userProvider.login(this.formCtrl.value.username,this.formCtrl.value.password);
+          this.userProvider.login(this.formCtrl.value.username,this.formCtrl.value.password,"/users/");
           this.navCtrl.setRoot(TabsPage);
         },
         (error) =>{

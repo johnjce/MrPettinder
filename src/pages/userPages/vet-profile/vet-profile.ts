@@ -11,8 +11,6 @@ export class VetProfilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad VetProfilePage');
-  }
+  ionViewDidLoad() { }
 
 }

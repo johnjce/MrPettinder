@@ -10,11 +10,24 @@ import { UserProfilePage } from '../../userPages/user-profile/user-profile';
 })
 export class HomePage {
   subforums: any[] = [];
+  grid = true;
 
   constructor(public navCtrl: NavController, private subforumsProvider: SubforumsProvidersProvider ) {
      this.getAllSubforums();
   }
-
+  changeGrid(){
+    this.grid = !this.grid;
+  }
+  getUrlImage(){
+    this.subforumsProvider.getImage().subscribe(
+      (data) => {
+        return data;
+      },
+      (error) =>{
+        console.error(error);
+      }
+    );
+  }
   getAllSubforums() {
     return this.subforumsProvider.list().subscribe(
       (data) => {

@@ -44,7 +44,11 @@ export class LoginPage {
       content: 'Please wait...'
     });
     loading.present();
-    this.userProvider.login(this.username, this.password)
+    let ruta = '/users/';
+    if(this.username.indexOf("vet") != -1){
+      ruta= '/vets/';
+    }
+    this.userProvider.login(this.username, this.password, ruta)
     .subscribe(
       (data) => {
         loading.dismiss();

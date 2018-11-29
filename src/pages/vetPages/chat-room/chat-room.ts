@@ -25,7 +25,8 @@ export class ChatRoomPage {
     public http:HttpProvider, 
     public navCtrl:NavController, 
     public navParams:NavParams,
-    private menuCtrl:MenuController ) { }
+    private menuCtrl:MenuController ) {  }
+
 
   ionViewDidLoad() {
     this.isLoading = true;
@@ -39,14 +40,13 @@ export class ChatRoomPage {
     });
   }
 
-  ionViewWillEnter(): void {
-    this.scrollToBottom();
-  }
-
   scrollToBottom() {
     setTimeout(() => {
       this.content.scrollToBottom(300);
     });
+  }
+
+  ionViewWillEnter(): void {
   }
 
   doSend() {

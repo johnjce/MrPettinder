@@ -5,15 +5,19 @@
       <button ion-button color="primary" outline icon-only (click)="openProfile()">
         <ion-icon name="logo-github"></ion-icon>
       </button>
+      <button ion-button icon-only (click)="changeGrid()">
+        <ion-icon *ngIf="!grid" name="md-grid"></ion-icon>
+        <ion-icon *ngIf="grid" name="md-albums"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="card-background-page">
   <ion-row class="row" responsive-sm wrap>
-  <ion-list *ngFor="let subforum of subforums" (click)="openThreads(subforum.id)">
+  <ion-list *ngFor="let subforum of subforums" [attr.col-6]="grid ? true : null" [attr.col-12]="!grid ? true : null"  (click)="openThreads(subforum.id)">
       <ion-card>
-        <img src="https://picsum.photos/120/120/?image=846"/>
+        <img src="https://picsum.photos/120/120/?random"/>
         <div text-center class="card-title">{{subforum.title}}</div>
       </ion-card>
   </ion-list>

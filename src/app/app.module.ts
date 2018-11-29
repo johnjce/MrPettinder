@@ -13,6 +13,8 @@ import { AdminProfilePage } from '../pages/userPages/admin-profile/admin-profile
 import { DashboardPage } from '../pages/userPages/dashboard/dashboard';
 import { SettingsPage } from '../pages/userPages/settings/settings';
 import { LoginPage } from '../pages/userPages/login/login';
+import { VetProfilePage } from '../pages/userPages/vet-profile/vet-profile';
+import { YourTimePage } from '../pages/userPages/your-time/your-time';
 
 import { HomePage } from '../pages/forumPages/home/home';
 import { ThreadsPage } from '../pages/forumPages/threads/threads';
@@ -34,8 +36,6 @@ import { HttpProvider } from '../providers/http/http'
 
 import { ListVetsPage } from '../pages/vetPages/list-vets/list-vets';
 import { ChatRoomPage } from '../pages/vetPages/chat-room/chat-room';
-import { VetProfilePage } from '../pages/vetPages/vet-profile/vet-profile';
-import { YourTimePage } from '../pages/vetPages/your-time/your-time';
 import { PacientsPage } from '../pages/userPages/pacients/pacients';
 import { InformPage } from '../pages/userPages/inform/inform';
 
