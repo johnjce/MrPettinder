@@ -23,7 +23,7 @@
 
   <ion-list>
     <ion-item-sliding #sliding *ngFor="let friend of veterinariansChat">
-      <ion-item (click)="goToChatRoom(friend)">
+      <ion-item (click)="goToVetProfilePage(friend)">
         <h2>{{ friend.name }} <span ion-text color="primary">({{ friend.username }})</span></h2>
       </ion-item>
     </ion-item-sliding>

@@ -17,7 +17,7 @@
   <ion-row class="row" responsive-sm wrap>
   <ion-list *ngFor="let subforum of subforums" [attr.col-6]="grid ? true : null" [attr.col-12]="!grid ? true : null"  (click)="openThreads(subforum.id)">
       <ion-card>
-        <img src="https://picsum.photos/120/120/?image=478"/>
+        <img src="https://loremflickr.com/420/420/{{subforum.title}},pets/all"/>
         <div text-center class="card-title">{{subforum.title}}</div>
       </ion-card>
   </ion-list>

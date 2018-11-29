@@ -7,6 +7,7 @@ import { ChatRoomPage } from '../chat-room/chat-room';
 
 import { ModalController } from 'ionic-angular';
 import { YourTimePage } from '../../userPages/your-time/your-time';
+import { VetProfilePage } from '../../userPages/vet-profile/vet-profile';
 
 @Component({
   selector: 'page-list-vets',
@@ -31,14 +32,11 @@ export class ListVetsPage {
     this.timeAvailable = this.userProvider.getTimeAvailable();
   }
 
-  goToChatRoom(friend: Friend) {
-    this.navCtrl.push(ChatRoomPage, {friend});
-  }
-
+  
   payMinutes(){
-      this.presentTimeModal();
+    this.presentTimeModal();
   }
-
+  
   presentTimeModal() {
     let timeModal = this.modalCtrl.create(YourTimePage, { time:this.timeAvailable });
     timeModal.onDidDismiss(data => {
@@ -46,19 +44,30 @@ export class ListVetsPage {
     });
     timeModal.present();
   }
- 
-
+  
+  
   getAllVets() {
     this.userProvider.getVeterinarians().subscribe(
       (data) => {
+        let i = 0;
         data.forEach(vet => {
-          let vete = {"username":vet.username,"name":vet.profile.name,"avatar": "Raouf.png"};
+          let vete = {"username":vet.username,"name":vet.profile.name,"avatar": "https://loremflickr.com/g/320/240/men,girl/all?random="+i,"expert":"Exotic and common pets"};
           this.veterinariansChat.push(vete);
+          i = i+1;
         });
       },
       (error) =>{
         console.error(error);
       }
       );
+    }
+    
+    goToVetProfilePage(friend){
+      console.log(friend);
+      this.navCtrl.push(VetProfilePage, friend);
+    }
+    
+    goToChatRoom(friend: Friend) {
+      this.navCtrl.push(ChatRoomPage, {friend});
     }
 }

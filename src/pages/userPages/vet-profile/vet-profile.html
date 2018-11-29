@@ -9,9 +9,9 @@
 
 <ion-content padding>
   <div>
-    <img class="profile-image" src="assets/imgs/profile.jpg">
-    <h4>Capo Plaza</h4>
-    <h4>Trap expert</h4>
+    <img class="profile-image" src='{{ vet.avatar }}'>
+    <h4>{{ vet.name }}</h4>
+    <h4>{{ vet.expert }}</h4>
   </div>
-  <button color="secondary" ion-button block>Chat</button>
+  <button color="secondary" ion-button block (click)="goToChatRoom()">Chat</button>
 </ion-content>
