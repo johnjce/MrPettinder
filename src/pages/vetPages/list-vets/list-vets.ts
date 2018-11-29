@@ -5,6 +5,8 @@ import {Friend} from "../../../models/user";
 import {UserProvider} from '../../../providers/user/user';
 import { ChatRoomPage } from '../chat-room/chat-room';
 
+import { ModalController } from 'ionic-angular';
+import { YourTimePage } from '../../userPages/your-time/your-time';
 
 @Component({
   selector: 'page-list-vets',
@@ -21,7 +23,7 @@ export class ListVetsPage {
     public navCtrl:NavController, 
     public userProvider:UserProvider,
     public navParams:NavParams,
-    private readonly toastCtrl: ToastController  ) {}
+    public modalCtrl: ModalController  ) {}
 
   ionViewDidLoad() {
     this.menuCtrl.enable(true);
@@ -34,16 +36,17 @@ export class ListVetsPage {
   }
 
   payMinutes(){
-    let message: string =this.timeAvailable + ' minutes availables, (call to pay method)';
-    const toast = this.toastCtrl.create(
-      {
-        message,
-        duration: 5000,
-        position: 'center'
-      }
-    );
-      toast.present();
+      this.presentTimeModal();
   }
+
+  presentTimeModal() {
+    let timeModal = this.modalCtrl.create(YourTimePage, { time:this.timeAvailable });
+    timeModal.onDidDismiss(data => {
+      console.log(data);
+    });
+    timeModal.present();
+  }
+ 
 
   getAllVets() {
     this.userProvider.getVeterinarians().subscribe(
