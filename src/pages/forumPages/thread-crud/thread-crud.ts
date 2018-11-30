@@ -45,7 +45,6 @@ export class ThreadCrudPage {
       };
     this.threadsProvider.setThread(dataOfThread).subscribe(
       (data) => {
-        console.log(data);
         this.navCtrl.setRoot(ThreadsPage, this.id);
       },
       (error) =>{

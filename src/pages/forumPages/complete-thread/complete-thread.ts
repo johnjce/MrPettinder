@@ -43,7 +43,6 @@ export class CompleteThreadPage {
       };
     this.completeThreadProvider.setMessage(dataOfMessage).subscribe(
       (data) => {
-        console.log("info:" + data);
         this.navCtrl.setRoot(CompleteThreadPage, this.id);
       },
       (error) =>{

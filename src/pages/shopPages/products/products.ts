@@ -54,9 +54,7 @@ export class ProductsPage {
 
     modal.onDidDismiss(product => { 
       if(product){
-
         this.productList.push(product.product); 
-        console.log(this.productList);
       }
     });
 

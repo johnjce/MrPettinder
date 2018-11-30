@@ -1,18 +1,38 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import { UserProvider } from '../../../providers/user/user';
+import { InformPage } from '../inform/inform';
 
 @Component({
   selector: 'page-pacients',
   templateUrl: 'pacients.html',
 })
 export class PacientsPage {
+  users: JSON[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public userProvider:UserProvider) {
+      
+    }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PacientsPage');
+    this.loadUsers();
   }
 
+  loadUsers(){
+    this.userProvider.getUsers().subscribe(
+      (data) => {
+          this.users = data.results;
+      },
+      (error) =>{
+        console.error(error);
+      }
+    );
+  }
+
+  goToInform(friend){
+    this.navCtrl.push(InformPage, friend);
+  }
 }

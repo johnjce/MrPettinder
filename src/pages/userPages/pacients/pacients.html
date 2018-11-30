@@ -2,12 +2,17 @@
 
   <ion-navbar>
     <ion-title>Pacients</ion-title>
-    <ion-toggle checked="false"></ion-toggle>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item-sliding #sliding *ngFor="let user of users">
+      <ion-item (click)="goToInform(user)">
+        <h2>{{ user.name.first }} <span ion-text color="primary">({{ user.name.last }})</span></h2>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

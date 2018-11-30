@@ -8,7 +8,7 @@
   <form [formGroup]="formCtrl" (ngSubmit)="save()">
     <div>
       <h1> Profile</h1>
-      <img class="profile-image" src="assets/imgs/profile.jpg">
+      <img class="profile-image" src="{{ avatar }}">
       <h4>{{user.name}}, {{user.surname}}</h4>
       <h4>{{age}} years old</h4>
     </div>

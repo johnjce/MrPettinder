@@ -40,7 +40,7 @@ export class ListVetsPage {
   presentTimeModal() {
     let timeModal = this.modalCtrl.create(YourTimePage, { time:this.timeAvailable });
     timeModal.onDidDismiss(data => {
-      console.log(data);
+      console.error(data);
     });
     timeModal.present();
   }
@@ -63,7 +63,6 @@ export class ListVetsPage {
     }
     
     goToVetProfilePage(friend){
-      console.log(friend);
       this.navCtrl.push(VetProfilePage, friend);
     }
     

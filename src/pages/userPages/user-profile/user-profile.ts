@@ -19,6 +19,7 @@ export class UserProfilePage {
   password: any;
   username: any;
   isLogged:boolean = false;
+  avatar: string;
 
   constructor(formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider ) {
     this.id = navParams.data;
@@ -44,6 +45,7 @@ export class UserProfilePage {
         this.password = data.password;
         this.dateOfBirth = new Date(data.profile.dateOfBirth);
         this.age = this.getAge(this.dateOfBirth.toISOString());
+        this.avatar = "https://loremflickr.com/320/240/girl/all";
       },
       (error) =>{
         console.error(error);
@@ -64,11 +66,9 @@ export class UserProfilePage {
       };
     if(this.isLogged){
       this.userProvider.updateUser(dataOfUser);
-      console.log("true");
     } else {
       this.userProvider.setUser(dataOfUser).subscribe(
         (data) => {
-          console.log(data);
           this.userProvider.login(this.formCtrl.value.username,this.formCtrl.value.password,"/users/");
           this.navCtrl.setRoot(TabsPage);
         },

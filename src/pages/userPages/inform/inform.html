@@ -12,17 +12,17 @@
     <div class="col">Pet</div>
   </div>
   <div class="row">
-    <div class="col">Federico</div>
-    <div class="col">García</div>
+    <div class="col">{{ owner }}</div>
+    <div class="col">{{ pet }}</div>
   </div>
   <div class="row header">
     <div class="col">Diagnostic</div>
   </div>
   <div class="row">
-    <div class="col Diagnostic">Lorca</div>
+    <div class="col Diagnostic">The animal has allergic dermatitis. Is recommended not letting him bite or scratch the affected zone. To treat this, make him eat 1 pill of Apoquel 5,4 daily.</div>
   </div>
   <div class="spaceBetween">
-    <button color="secondary"ion-button block >Chat</button>
+    <button color="secondary"ion-button block (click)="goToChatRoom()">Chat</button>
   </div>
   
 

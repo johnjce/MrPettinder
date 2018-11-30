@@ -13,7 +13,6 @@ export class ProductDetailsPage {
 
   constructor(public navParams: NavParams, public navCtrl: NavController) {
   		this.product = this.navParams.get('product');
-  		console.log(this.product);
   }
   
 }

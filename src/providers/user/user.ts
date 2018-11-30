@@ -18,11 +18,11 @@ export class UserProvider {
   getTimeAvailable(): any {
     return this.timeAvailable;
   }
-
+  
   setTimeAvailable(time): any {
     this.timeAvailable = time;
   }
-
+  
   getLoggedUser(): Observable< any > {
     return this.http.get(this.apiurlProvider.getAPIURL()+'/users/'+this.username).map(res => res);
   }
@@ -30,7 +30,7 @@ export class UserProvider {
   getVeterinarians(): Observable< any > {
     return this.http.get(this.apiurlProvider.getAPIURL()+'/vets').map(res => res);
   }
-
+  
   
   login(username, password, ruta): Observable< any > {
     this.apiurlProvider.setAutorization(btoa(username + ":" + password));
@@ -59,7 +59,7 @@ export class UserProvider {
       .set('Access-Control-Allow-Origin', 'true')
     }).map(res => res);
   }
-
+  
   setUser(dataOfUser): Observable< any > {
     return this.http.post(this.apiurlProvider.getAPIURL()+'/users/', dataOfUser, { 
       headers: new HttpHeaders()
@@ -70,12 +70,16 @@ export class UserProvider {
       .set('Access-Control-Allow-Origin', 'true')
     }).map(res => res);
   }
-
+  
   get user():User {
     return this._user;
   }
-
+  
   set user(value:User) {
     this._user = value;
+  }
+
+  getUsers(): Observable< any > {
+    return this.http.get("https://randomuser.me/api/?results=6").map(res=>res);
   }
 }

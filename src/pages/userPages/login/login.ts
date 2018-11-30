@@ -44,11 +44,7 @@ export class LoginPage {
       content: 'Please wait...'
     });
     loading.present();
-    let ruta = '/users/';
-    if(this.username.indexOf("vet") != -1){
-      ruta= '/vets/';
-    }
-    this.userProvider.login(this.username, this.password, ruta)
+    this.userProvider.login(this.username, this.password, '/users/')
     .subscribe(
       (data) => {
         loading.dismiss();
@@ -56,10 +52,10 @@ export class LoginPage {
           "username": data.username,
           "fullname": data.profile.name,
           "email": data.profile.email,
-          "avatar": "Raouf.png",
+          "avatar": "https://loremflickr.com/320/240/girl/all",
           "password": this.password
         };
-        this.navCtrl.setRoot(TabsPage);
+        this.navCtrl.setRoot(TabsPage, data.username);
       },
       (error) =>{
         this.handleError(error);
