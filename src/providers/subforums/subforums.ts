@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs';
 import { ApiurlProvider } from '../apiurl/apiurl';
 import { UserProvider } from '../user/user';
-import { from } from 'rxjs/observable/from';
+
 @Injectable()
 export class SubforumsProvidersProvider {
 

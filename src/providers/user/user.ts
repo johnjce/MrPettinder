@@ -51,6 +51,7 @@ export class UserProvider {
   
   logout(){
     this.apiurlProvider.setAutorization("");
+    this.setUser(null);
   }
   
   updateUser(dataOfUser): Observable< any > {

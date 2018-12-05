@@ -8,7 +8,7 @@
 <ion-content padding *ngIf="!isLoading">
   <div class="message-wrap">
     <div *ngFor="let msg of messages">
-      <div class="sender" *ngIf="msg.from == friend.username && msg.to == 'me' ">
+      <div class="sender" *ngIf="msg.from == friend.username && msg.to == myProfile.username ">
         <ion-grid>
           <ion-row>
             <ion-col col-2 text-left>
@@ -20,7 +20,7 @@
         </ion-grid>
       </div>
 
-      <div class="me" *ngIf="msg.from == 'me' && msg.to == friend.username">
+      <div class="me" *ngIf="msg.from == myProfile.username && msg.to == friend.username">
         <ion-grid>
           <ion-row>
             <ion-col col-10>

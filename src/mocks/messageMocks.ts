@@ -8,74 +8,74 @@ export class MessageMocks {
   constructor() {
     let items = [
       {
-        "from": "me",
+        "from": "user",
         "to": "vet7",
         "content": "Hello",
         "time": new Date()
       },
       {
         "from": "vet7",
-        "to": "me",
+        "to": "user",
         "content": "Hi how are you ?",
         "time": new Date()
       },
       {
-        "from": "me",
+        "from": "user",
         "to": "vet7",
         "content": "Fine",
         "time": new Date()
       },
       {
-        "from": "me",
+        "from": "user",
         "to": "vet7",
         "content": "And you ?",
         "time": new Date()
       },
       {
         "from": "vet7",
-        "to": "me",
+        "to": "user",
         "content": "Good",
         "time": new Date()
       },
       {
-        "from": "me",
+        "from": "user",
         "to": "vet8",
         "content": "Hi",
         "time": new Date()
       },
       {
         "from": "vet3",
-        "to": "me",
+        "to": "user",
         "content": "Hi",
         "time": new Date()
       },
       {
         "from": "JTS",
-        "to": "me",
+        "to": "user",
         "content": "Hi",
         "time": new Date()
       },
       {
         "from": "vet4",
-        "to": "me",
+        "to": "user",
         "content": "Hi",
         "time": new Date()
       },
       {
         "from": "vet5",
-        "to": "me",
+        "to": "user",
         "content": "Hi",
         "time": new Date()
       },
       {
         "from": "vet6",
-        "to": "me",
+        "to": "user",
         "content": "Hi",
         "time": new Date()
       },
       {
         "from": "vet8",
-        "to": "me",
+        "to": "user",
         "content": "Hi",
         "time": new Date()
       }

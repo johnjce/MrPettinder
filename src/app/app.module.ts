@@ -41,10 +41,9 @@ import { InformPage } from '../pages/userPages/inform/inform';
 
 
 
-import { IonicStorageModule, Storage } from '@ionic/storage';
+//import { IonicStorageModule, Storage } from '@ionic/storage';
 //import { Camera } from '@ionic-native/camera';
 
-import { Items } from '../mocks/providers/items';
 import { MessageMocks } from '../mocks/messageMocks';
 import { IonicPageModule } from 'ionic-angular';
 //import { IonicStorageModule } from '@ionic/storage';
@@ -81,7 +80,7 @@ import { IonicPageModule } from 'ionic-angular';
     IonicModule.forRoot(MyApp),
     IonicPageModule.forChild(ListVetsPage),
     IonicPageModule.forChild(ChatRoomPage),
-    IonicStorageModule.forRoot()
+    //IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -116,7 +115,6 @@ import { IonicPageModule } from 'ionic-angular';
     ApiurlProvider,
     UserProvider,
     HttpProvider,
-    Items,
     MessageMocks,
     HttpProvider,
 

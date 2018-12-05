@@ -24,7 +24,8 @@ export class PacientsPage {
   loadUsers(){
     this.userProvider.getUsers().subscribe(
       (data) => {
-          this.users = data.results;
+        console.log(data);
+          this.users = data;
       },
       (error) =>{
         console.error(error);

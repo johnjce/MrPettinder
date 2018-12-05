@@ -6,6 +6,7 @@ import {forkJoin} from 'rxjs/observable/forkJoin';
 import { MessageMocks } from "../../../mocks/messageMocks";
 import { Message } from "../../../models/message";
 import { Content } from 'ionic-angular';
+import { UserProvider } from '../../../providers/user/user';
 
 @Component({
   selector: 'page-chat-room',
@@ -25,7 +26,8 @@ export class ChatRoomPage {
     public http:HttpProvider, 
     public navCtrl:NavController, 
     public navParams:NavParams,
-    private menuCtrl:MenuController ) {  }
+    private menuCtrl:MenuController,
+    private userProvider:UserProvider ) {  }
 
 
   ionViewDidLoad() {
@@ -33,10 +35,17 @@ export class ChatRoomPage {
     this.messages = this.msgMocks.items;
     this.friend = this.navParams.get('friend');
     forkJoin(
-      this.http.get('my-profile.json')
+      this.userProvider.getLoggedUser()
     ).subscribe(([profile]) => {
+      let prof = {
+        "username": profile.username,
+        "password": profile.password,
+        "fullname": profile.profile.name+" "+profile.profile.surname,
+        "avatar": "https://loremflickr.com/320/240/girl/all",
+        "email": profile.profile.email
+      }
       this.isLoading = false;
-      this.myProfile = <User>profile;
+      this.myProfile = <User>prof;
     });
   }
 
@@ -46,14 +55,19 @@ export class ChatRoomPage {
     });
   }
 
-  ionViewWillEnter(): void {
+  ionViewDidEnter() {
+    let elem = <HTMLElement>document.querySelector(".tabbar");
+    if (elem != null) {
+      elem.style.display = 'none';
+    }
   }
+
 
   doSend() {
     if(this.input.length > 0) {
       let message: Message = new Message();
       message.to = this.friend.username;
-      message.from = 'me';
+      message.from = this.myProfile.username;
       message.content = this.input;
       this.msgMocks.add(message);
       this.scrollToBottom();

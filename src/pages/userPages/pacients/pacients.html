@@ -11,7 +11,7 @@
   <ion-list>
     <ion-item-sliding #sliding *ngFor="let user of users">
       <ion-item (click)="goToInform(user)">
-        <h2>{{ user.name.first }} <span ion-text color="primary">({{ user.name.last }})</span></h2>
+        <h2>{{ user.username }} <span ion-text color="primary">({{ user.petName }})</span></h2>
       </ion-item>
     </ion-item-sliding>
   </ion-list>

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, MenuController, ToastController} from 'ionic-angular';
+import {NavController, NavParams, MenuController} from 'ionic-angular';
 import {HttpProvider} from "../../../providers/http/http";
 import {Friend} from "../../../models/user";
 import {UserProvider} from '../../../providers/user/user';

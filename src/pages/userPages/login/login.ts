@@ -21,7 +21,12 @@ export class LoginPage {
               private readonly toastCtrl: ToastController,
               private userProvider: UserProvider) {
   }
-
+  ionViewDidEnter() {
+    let elem = <HTMLElement>document.querySelector(".tabbar");
+    if (elem != null) {
+      elem.style.display = 'none';
+    }
+  }
   handleError(error: any) {
     let message: string;
 	    if (error.status && error.status === 401) {
@@ -55,7 +60,7 @@ export class LoginPage {
         loading.dismiss();
         this.userProvider.user = <User>{
           "username": data.username,
-          "fullname": data.profile.name,
+          "fullname": data.profile.name+" "+data.profile.surname,
           "email": data.profile.email,
           "avatar": "https://loremflickr.com/320/240/girl/all",
           "password": this.password

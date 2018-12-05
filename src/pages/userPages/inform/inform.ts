@@ -15,14 +15,19 @@ export class InformPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
+  ionViewWillEnter() { 
+    let elem = <HTMLElement>document.querySelector(".tabbar");
+    if (elem != null) {
+      elem.style.display = 'flex';
+    }
+  }
   ionViewDidLoad() {
-    this.owner=this.navParams.data.name.first;
-    this.pet=this.navParams.data.name.last;
+    this.owner=this.navParams.data.username;
+    this.pet=this.navParams.data.petName;
     let user = {
-      "username": this.navParams.data.name.first,
+      "username": this.owner,
       "avatar": "https://loremflickr.com/320/240/girl/all",
-      "profile":"s",
+      "profile":this.navParams.data.profile,
       "available":false
     }
     this.user = user;
