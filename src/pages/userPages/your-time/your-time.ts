@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
-import { ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-your-time',
@@ -42,7 +41,7 @@ export class YourTimePage {
     toast.present();
   }
   dismiss() {
-    let data = { 'foo': 'bar' };
+    let data = { '': '' };
     this.viewCtrl.dismiss(data);
   }
 

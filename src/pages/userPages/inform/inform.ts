@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { ChatRoomPage } from '../../vetPages/chat-room/chat-room';
 import { User, Friend } from '../../../models/user';
 
@@ -13,14 +13,9 @@ export class InformPage {
   pet;
   user: Friend;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
-  ionViewWillEnter() { 
-    let elem = <HTMLElement>document.querySelector(".tabbar");
-    if (elem != null) {
-      elem.style.display = 'flex';
-    }
-  }
+  
   ionViewDidLoad() {
     this.owner=this.navParams.data.username;
     this.pet=this.navParams.data.petName;
@@ -33,8 +28,14 @@ export class InformPage {
     this.user = user;
   }
 
-  goToChatRoom() {
-    let friend = this.user;
-    this.navCtrl.push(ChatRoomPage, { friend });
+  goToChatRoom(){
+    this.presentChatModal();
+  }
+  presentChatModal() {
+    let chatModal = this.modalCtrl.create(ChatRoomPage,   { "friend":this.user });
+    chatModal.onDidDismiss(data => {
+      console.error(data);
+    });
+    chatModal.present();
   }
 }

@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, NavParams, MenuController} from 'ionic-angular';
+import {NavController, NavParams, ViewController, MenuController} from 'ionic-angular';
 import {Friend, User} from "../../../models/user";
 import {HttpProvider} from "../../../providers/http/http";
 import {forkJoin} from 'rxjs/observable/forkJoin';
@@ -27,7 +27,8 @@ export class ChatRoomPage {
     public navCtrl:NavController, 
     public navParams:NavParams,
     private menuCtrl:MenuController,
-    private userProvider:UserProvider ) {  }
+    private userProvider:UserProvider,
+    private viewCtrl:ViewController ) {  }
 
 
   ionViewDidLoad() {
@@ -55,14 +56,6 @@ export class ChatRoomPage {
     });
   }
 
-  ionViewDidEnter() {
-    let elem = <HTMLElement>document.querySelector(".tabbar");
-    if (elem != null) {
-      elem.style.display = 'none';
-    }
-  }
-
-
   doSend() {
     if(this.input.length > 0) {
       let message: Message = new Message();
@@ -74,4 +67,10 @@ export class ChatRoomPage {
       this.input = '';
     }
   }
+
+  dismiss() {
+    let data = { '': '' };
+    this.viewCtrl.dismiss(data);
+  }
+  
 }
