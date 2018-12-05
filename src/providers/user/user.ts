@@ -24,7 +24,11 @@ export class UserProvider {
   }
   
   getLoggedUser(): Observable< any > {
-    return this.http.get(this.apiurlProvider.getAPIURL()+'/users/'+this.username).map(res => res);
+    let ruta = '/users/';
+    if(this.username.substr(0,3) == "vet"){
+      ruta = '/vets/name/';
+    }
+    return this.http.get(this.apiurlProvider.getAPIURL()+ruta+this.username).map(res => res);
   }
   
   getVeterinarians(): Observable< any > {
@@ -80,6 +84,13 @@ export class UserProvider {
   }
 
   getUsers(): Observable< any > {
-    return this.http.get("https://randomuser.me/api/?results=6").map(res=>res);
+    return this.http.get(this.apiurlProvider.getAPIURL()+'/users', { 
+      headers: new HttpHeaders()
+      .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
+      .set('Content-Type', 'application/json')
+      .set('cache-control', 'no-cache')
+      .set('Access-Control-Allow-Credentials', 'true')
+      .set('Access-Control-Allow-Origin', 'true')
+    }).map(res => res);
   }
 }

@@ -6,8 +6,6 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'product-details.html'
 })
 export class ProductDetailsPage {
-  // this tells the tabs component which Pages
-  // should be each tab's root Page
   product: any;
 
 

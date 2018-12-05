@@ -19,7 +19,7 @@ export class TabsPage {
   username: any;
   constructor(
     public navParams:NavParams) {
-      if(this.navParams.data.substr(0,2) == "ve"){
+      if(this.navParams.data){
         this.tab1Root=PacientsPage;
       }else{
         this.tab1Root=ListVetsPage;

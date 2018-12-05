@@ -55,22 +55,29 @@ export class UserProfilePage {
 
   save(){
     let dataOfUser = {
-        'username':this.formCtrl.value.username,
-        'password':this.formCtrl.value.password,
-        'profile': {
-          'name' : this.formCtrl.value.name,
-          'surname' : this.formCtrl.value.surname,
-          'email' : this.formCtrl.value.email,
-          'dateOfBirth' : this.formCtrl.value.dateOfBirth
-        }
-      };
+      'username':this.formCtrl.value.username,
+      'password':this.formCtrl.value.password,
+      'profile': {
+        'name' : this.formCtrl.value.name,
+        'surname' : this.formCtrl.value.surname,
+        'email' : this.formCtrl.value.email,
+        'dateOfBirth' : this.formCtrl.value.dateOfBirth
+      }
+    };
+
+    let isVet = (this.formCtrl.value.username.substr(0,3) == "vet");
+    let ruta = '/users/';
+    if(isVet){
+      ruta = '/vets/name/';
+    }
+
     if(this.isLogged){
       this.userProvider.updateUser(dataOfUser);
     } else {
       this.userProvider.setUser(dataOfUser).subscribe(
         (data) => {
-          this.userProvider.login(this.formCtrl.value.username,this.formCtrl.value.password,"/users/");
-          this.navCtrl.setRoot(TabsPage);
+          this.userProvider.login(this.formCtrl.value.username,this.formCtrl.value.password,ruta);
+          this.navCtrl.setRoot(TabsPage,isVet);
         },
         (error) =>{
           console.error(error);
