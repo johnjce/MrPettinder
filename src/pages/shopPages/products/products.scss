@@ -1,3 +1,23 @@
-page-products {
 
-}
+    .badge {    
+        border-radius: 100%;
+        color: #353535;
+        background-color: #ea8a00;
+        font-size: 0.9em;
+        padding: 3px 5px;
+    }
+     
+    .category-block {
+        margin-bottom: 4px;
+    }
+     
+    .category-banner {
+        border-left: 8px solid var(--ion-color-secondary);
+        background: var(--ion-color-light);
+        height: 40px;
+        padding: 10px;
+        font-weight: 500;
+    }
+    .card-title-md {
+        font-size: 1.4rem;
+    }

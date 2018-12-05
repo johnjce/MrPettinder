@@ -22,7 +22,6 @@ import { CompleteThreadPage } from '../pages/forumPages/complete-thread/complete
 import { ThreadCrudPage } from '../pages/forumPages/thread-crud/thread-crud';
 
 
-import { OrdersPage } from '../pages/shopPages/orders/orders';
 import { ProductsPage } from '../pages/shopPages/products/products';
 import { ProductDetailsPage } from '../pages/shopPages/product-details/product-details';
 import { AddNewPage } from '../pages/shopPages/add-new/add-new';
@@ -33,6 +32,7 @@ import { SubforumsProvidersProvider } from '../providers/subforums/subforums';
 import { ApiurlProvider } from '../providers/apiurl/apiurl';
 import { UserProvider } from '../providers/user/user';
 import { HttpProvider } from '../providers/http/http'
+import { CartService } from '../providers/shop/cart'
 
 import { ListVetsPage } from '../pages/vetPages/list-vets/list-vets';
 import { ChatRoomPage } from '../pages/vetPages/chat-room/chat-room';
@@ -66,7 +66,6 @@ import { IonicPageModule } from 'ionic-angular';
     PacientsPage,
     InformPage,
 
-    OrdersPage,
     DashboardPage,
     SettingsPage,
     LoginPage,
@@ -99,7 +98,6 @@ import { IonicPageModule } from 'ionic-angular';
     PacientsPage,
     InformPage,
 
-    OrdersPage,
     DashboardPage,
     SettingsPage,
     LoginPage,
@@ -117,6 +115,7 @@ import { IonicPageModule } from 'ionic-angular';
     HttpProvider,
     MessageMocks,
     HttpProvider,
+    CartService,
 
   ]
 })
