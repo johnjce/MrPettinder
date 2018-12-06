@@ -20,6 +20,7 @@ export class UserProfilePage {
   username: any;
   isLogged:boolean = false;
   avatar: string;
+  petName: string;
 
   constructor(formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider ) {
     this.id = navParams.data;
@@ -33,7 +34,8 @@ export class UserProfilePage {
       email: [''],
       dateOfBirth:[''],
       username: [''],
-      password: ['']
+      password: [''],
+      petName: ['']
     });
   }
   
@@ -43,6 +45,7 @@ export class UserProfilePage {
         this.user = data.profile;
         this.username = data.username;
         this.password = data.password;
+        this.petName = data.petName;
         this.dateOfBirth = new Date(data.profile.dateOfBirth);
         this.age = this.getAge(this.dateOfBirth.toISOString());
         this.avatar = "https://loremflickr.com/320/240/girl/all";
@@ -56,6 +59,7 @@ export class UserProfilePage {
   save(){
     let dataOfUser = {
       'username':this.formCtrl.value.username,
+      'petName':this.formCtrl.value.petName,
       'password':this.formCtrl.value.password,
       'profile': {
         'name' : this.formCtrl.value.name,
@@ -65,19 +69,13 @@ export class UserProfilePage {
       }
     };
 
-    let isVet = (this.formCtrl.value.username.substr(0,3) == "vet");
-    let ruta = '/users/';
-    if(isVet){
-      ruta = '/vets/name/';
-    }
-
     if(this.isLogged){
       this.userProvider.updateUser(dataOfUser);
     } else {
       this.userProvider.setUser(dataOfUser).subscribe(
         (data) => {
-          this.userProvider.login(this.formCtrl.value.username,this.formCtrl.value.password,ruta);
-          this.navCtrl.setRoot(TabsPage,isVet);
+          this.userProvider.login(this.formCtrl.value.username,this.formCtrl.value.password,'/users/');
+          this.navCtrl.setRoot(TabsPage,false);
         },
         (error) =>{
           console.error(error);

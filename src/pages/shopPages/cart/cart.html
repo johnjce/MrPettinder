@@ -2,14 +2,13 @@
   <ion-toolbar>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
-        <span ion-text color="primary" showWhen="ios">Cancel</span>
-        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        <ion-icon name="close-circle"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title>Cart</ion-title>
   </ion-toolbar>
 </ion-header>
- 
+
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of selectedItems" lines="inset">
@@ -18,7 +17,7 @@
     </ion-item>
     <ion-item>
       <ion-label start></ion-label>
-      <ion-label end text-right>Total: <span >{{ total | currency:'EUR':'symbol' }}</span></ion-label>
+      <ion-label end text-right>Total: <span>{{ total | currency:'EUR':'symbol' }}</span></ion-label>
     </ion-item>
   </ion-list>
   <ion-buttons class="col-center">

@@ -27,7 +27,6 @@ export class CartPage  {
     }
     this.selectedItems = Object.keys(selected).map(key => selected[key])
     this.total = this.selectedItems.reduce((a, b) => a + (b.count * b.price), 0);
-    console.log(this.selectedItems);
   }
  
   dismiss() {

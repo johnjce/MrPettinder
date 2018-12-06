@@ -28,20 +28,25 @@
         <ion-input type="text" [(ngModel)]="user.name" formControlName="name" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Name</ion-label>
+        <ion-label floating>Surname</ion-label>
         <ion-input type="text" [(ngModel)]="user.surname" formControlName="surname" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Pet name</ion-label>
+        <ion-input type="text" [(ngModel)]="petName" formControlName="petName" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Email</ion-label>
         <ion-input type="text" [(ngModel)]="user.email" formControlName="email" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label >Birth Date</ion-label>
-        <ion-datetime required formControlName="dateOfBirth" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="dateOfBirthText"></ion-datetime>
+        <ion-label>Birth Date</ion-label>
+        <ion-datetime required formControlName="dateOfBirth" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"
+          [(ngModel)]="dateOfBirth"></ion-datetime>
       </ion-item>
 
     </ion-list>
-    <button color="secondary" [disabled]="!formCtrl.valid" type="submit" ion-button block >Save</button>
+    <button color="secondary" [disabled]="!formCtrl.valid" type="submit" ion-button block>Save</button>
     <button ion-button (click)="logout()">LogOut</button>
   </form>
 </ion-content>
