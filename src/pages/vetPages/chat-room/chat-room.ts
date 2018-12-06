@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, NavParams, ViewController, MenuController} from 'ionic-angular';
+import {NavController, NavParams, ViewController} from 'ionic-angular';
 import {Friend, User} from "../../../models/user";
 import {HttpProvider} from "../../../providers/http/http";
 import {forkJoin} from 'rxjs/observable/forkJoin';
@@ -26,7 +26,6 @@ export class ChatRoomPage {
     public http:HttpProvider, 
     public navCtrl:NavController, 
     public navParams:NavParams,
-    private menuCtrl:MenuController,
     private userProvider:UserProvider,
     private viewCtrl:ViewController ) {  }
 

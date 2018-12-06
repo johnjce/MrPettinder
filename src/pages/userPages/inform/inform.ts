@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { ChatRoomPage } from '../../vetPages/chat-room/chat-room';
-import { User, Friend } from '../../../models/user';
+import { Friend } from '../../../models/user';
 
 @Component({
   selector: 'page-inform',

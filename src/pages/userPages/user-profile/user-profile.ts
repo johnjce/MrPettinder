@@ -13,6 +13,7 @@ import { TabsPage } from '../../tabs/tabs';
 export class UserProfilePage {
   user: any[] = [];
   dateOfBirth:Date;
+  dateOfBirthText:String;
   id: any;
   age: string;
   formCtrl: FormGroup;
@@ -47,7 +48,9 @@ export class UserProfilePage {
         this.password = data.password;
         this.petName = data.petName;
         this.dateOfBirth = new Date(data.profile.dateOfBirth);
-        this.age = this.getAge(this.dateOfBirth.toISOString());
+        this.dateOfBirthText = this.dateOfBirth.toISOString();
+        console.log(this.dateOfBirth.getTime());
+        this.age = this.getAge(this.dateOfBirthText);
         this.avatar = "https://loremflickr.com/320/240/girl/all";
       },
       (error) =>{
