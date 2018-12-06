@@ -11,9 +11,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding *ngIf="!isLoading">
+<ion-content padding>
   <div class="message-wrap">
-    <div *ngFor="let msg of messages">
+    <div *ngFor="let msg of msgMocks.items">
       <div class="sender" *ngIf="msg.from == friend.username && msg.to == myProfile.username ">
         <ion-grid>
           <ion-row>

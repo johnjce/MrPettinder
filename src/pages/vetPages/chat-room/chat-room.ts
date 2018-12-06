@@ -18,21 +18,19 @@ export class ChatRoomPage {
   @ViewChild(Content) content: Content;
   private friend:Friend = new Friend();
   private myProfile:User = new User();
-  private messages;
   private input: string = '';
-  private isLoading: boolean = true;
 
   constructor(public msgMocks:MessageMocks, 
     public http:HttpProvider, 
     public navCtrl:NavController, 
     public navParams:NavParams,
     private userProvider:UserProvider,
-    private viewCtrl:ViewController ) {  }
-
+    private viewCtrl:ViewController ) {  
+      this.scrollToBottom();
+    }
 
   ionViewDidLoad() {
-    this.isLoading = true;
-    this.messages = this.msgMocks.items;
+    this.msgMocks.items;
     this.friend = this.navParams.get('friend');
     forkJoin(
       this.userProvider.getLoggedUser()
@@ -44,7 +42,6 @@ export class ChatRoomPage {
         "avatar": "https://loremflickr.com/320/240/girl/all",
         "email": profile.profile.email
       }
-      this.isLoading = false;
       this.myProfile = <User>prof;
     });
   }
@@ -62,8 +59,8 @@ export class ChatRoomPage {
       message.from = this.myProfile.username;
       message.content = this.input;
       this.msgMocks.add(message);
-      this.scrollToBottom();
       this.input = '';
+      this.scrollToBottom();
     }
   }
 
