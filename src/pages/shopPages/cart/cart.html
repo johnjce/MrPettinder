@@ -1,7 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
     </ion-buttons>
     <ion-title>Cart</ion-title>
   </ion-toolbar>
@@ -10,11 +13,15 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of selectedItems" lines="inset">
-      {{ item.count }}x {{ item.name }} - {{ item.price | currency:'EUR':'symbol' }}
-      <ion-label slot="end" text-right>{{ (item.price * item.count) | currency:'EUR':'symbol' }}</ion-label>
+      <ion-label start>{{ item.count }} x {{ item.name }} - {{ item.price | currency:'EUR':'symbol' }}</ion-label>
+      <ion-label end text-right>{{ (item.price * item.count) | currency:'EUR':'symbol' }}</ion-label>
     </ion-item>
     <ion-item>
-      Total: <span slot="end">{{ total | currency:'EUR':'symbol' }}</span>
+      <ion-label start></ion-label>
+      <ion-label end text-right>Total: <span >{{ total | currency:'EUR':'symbol' }}</span></ion-label>
     </ion-item>
   </ion-list>
+  <ion-buttons class="col-center">
+    <button ion-button center>Pagar</button>
+  </ion-buttons>
 </ion-content>

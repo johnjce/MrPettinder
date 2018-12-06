@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Shopping
+      Shopping
     </ion-title>
     <ion-buttons end>
       <button ion-button (click)="openCart()">
@@ -31,7 +31,10 @@
               </ion-card-title>
               <ion-card-content>
                 <img src="{{ product.imageURL }}">
-                <button ion-button expand="full" (click)="addToCart(product)">Add to Cart</button>
+                <ion-buttons>
+                  <button ion-button expand="full" (click)="readMore(product)">Read +</button>
+                  <button ion-button expand="full" (click)="addToCart(product)">+ Cart</button>
+                </ion-buttons>
               </ion-card-content>
             </ion-card-header>
           </ion-card>

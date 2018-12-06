@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 
 @Component({
   selector: 'page-product-details',
@@ -9,8 +9,15 @@ export class ProductDetailsPage {
   product: any;
 
 
-  constructor(public navParams: NavParams, public navCtrl: NavController) {
+  constructor(public navParams: NavParams, 
+    public navCtrl: NavController,
+    private viewCtrl:ViewController) {
   		this.product = this.navParams.get('product');
+  }
+  
+  dismiss() {
+    let data = { '': '' };
+    this.viewCtrl.dismiss(data);
   }
   
 }

@@ -38,6 +38,7 @@ import { ListVetsPage } from '../pages/vetPages/list-vets/list-vets';
 import { ChatRoomPage } from '../pages/vetPages/chat-room/chat-room';
 import { PacientsPage } from '../pages/userPages/pacients/pacients';
 import { InformPage } from '../pages/userPages/inform/inform';
+import { CartPage } from '../pages/shopPages/cart/cart';
 
 
 
@@ -65,7 +66,7 @@ import { IonicPageModule } from 'ionic-angular';
     YourTimePage,
     PacientsPage,
     InformPage,
-
+    CartPage,
     DashboardPage,
     SettingsPage,
     LoginPage,
@@ -97,7 +98,7 @@ import { IonicPageModule } from 'ionic-angular';
     YourTimePage,
     PacientsPage,
     InformPage,
-
+    CartPage,
     DashboardPage,
     SettingsPage,
     LoginPage,

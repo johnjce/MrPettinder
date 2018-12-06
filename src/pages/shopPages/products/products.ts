@@ -4,6 +4,7 @@ import { CartService } from '../../../providers/shop/cart';
 import { CartPage } from '../cart/cart';
 import {Slides} from 'ionic-angular';
 import { ViewChild } from '@angular/core';
+import { ProductDetailsPage } from '../product-details/product-details';
 
 @Component({
   selector: 'page-products',
@@ -13,7 +14,10 @@ export class ProductsPage {
   @ViewChild(Slides) slides: Slides;
   cart = [];
   items = [];
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController, private cartService: CartService) {
+  constructor(public navCtrl: NavController, 
+    public modalCtrl: ModalController, 
+    private cartService: CartService) {
+
     this.items = this.cartService.getProducts();
     this.cart = this.cartService.getCart();
   }
@@ -22,18 +26,22 @@ export class ProductsPage {
     this.cartService.addProduct(product);
   }
 
-  openCart() {
-    let chatModal = this.modalCtrl.create(CartPage);
-    chatModal.onDidDismiss(data => {
+  readMore(product) {
+    let cartModal = this.modalCtrl.create(ProductDetailsPage, { product });
+    cartModal.onDidDismiss(data => {
       console.error(data);
     });
-    chatModal.present();
+    cartModal.present();
   }
 
-  ngAfterViewInit() {
-    this.slides.slidesPerView = 1.6;
-    this.slides.spaceBetween = 10;
-    this.slides.centeredSlides = true;
+  openCart() {
+    let cartModal = this.modalCtrl.create(CartPage);
+    cartModal.onDidDismiss(data => {
+      console.error(data);
+    });
+    cartModal.present();
   }
+
+  
 }
 
