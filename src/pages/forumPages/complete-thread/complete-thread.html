@@ -24,16 +24,9 @@
     </ion-card-content>
     <ion-row>
       <ion-col>
-        <button ion-button icon-left clear small>
+        <button ion-button icon-left clear small (click)="like()">
           <ion-icon name="thumbs-up"></ion-icon>
-          <div>6</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-right clear small>
-          <h3>Answer</h3>
-          <ion-icon name="share-alt"></ion-icon>
-          <div>6</div>
+          <div>{{likes}}</div>
         </button>
       </ion-col>
     </ion-row>

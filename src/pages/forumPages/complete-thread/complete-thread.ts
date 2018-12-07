@@ -14,6 +14,7 @@ export class CompleteThreadPage {
   completeThread: any[] = [];
   title:string="";
   myForm: FormGroup;
+  likes:number=0;
   
   description:string="";
 
@@ -54,6 +55,10 @@ export class CompleteThreadPage {
     return this.formBuilder.group({
       content: ['', Validators.required]
     });
+  }
+
+  private like(){
+    this.likes += 1;
   }
 
   
