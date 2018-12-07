@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Pacients
+    </ion-title>
+    <ion-buttons end>
+      <ion-toggle [(ngModel)]="available" (ionChange)="changeAvailability()" checked="available"></ion-toggle>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item underline>
+    <ion-label>available</ion-label>
+    
+  </ion-item>
+  <ion-list>
+    <ion-item-sliding #sliding *ngFor="let user of users">
+      <ion-item (click)="goToInform(user)">
+        <h2>{{ user.username }} <span ion-text color="primary">({{ user.petName }})</span></h2>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

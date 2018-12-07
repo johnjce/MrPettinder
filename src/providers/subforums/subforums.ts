@@ -62,13 +62,13 @@ export class SubforumsProvidersProvider {
   }
 
   setMessage(dataOfMessage): Observable< any > {
-      return this.http.post(this.apiurlProvider.getAPIURL()+'/messages/', dataOfMessage, { 
-        headers: new HttpHeaders()
-        .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
-        .set('Content-Type', 'application/json')
-        .set('cache-control', 'no-cache')
-        .set('Access-Control-Allow-Credentials', 'true')
-        .set('Access-Control-Allow-Origin', 'true')
-      }).map(res => res);
+    return this.http.post(this.apiurlProvider.getAPIURL()+'/messages/', dataOfMessage, { 
+      headers: new HttpHeaders()
+      .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
+      .set('Content-Type', 'application/json')
+      .set('cache-control', 'no-cache')
+      .set('Access-Control-Allow-Credentials', 'true')
+      .set('Access-Control-Allow-Origin', 'true')
+    }).map(res => res);
   }
 }

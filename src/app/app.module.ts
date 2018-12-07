@@ -25,6 +25,7 @@ import { ThreadCrudPage } from '../pages/forumPages/thread-crud/thread-crud';
 import { ProductsPage } from '../pages/shopPages/products/products';
 import { ProductDetailsPage } from '../pages/shopPages/product-details/product-details';
 import { AddNewPage } from '../pages/shopPages/add-new/add-new';
+import { CartPage } from '../pages/shopPages/cart/cart';
 
 
 import { HttpClientModule } from '@angular/common/http';
@@ -36,9 +37,8 @@ import { CartService } from '../providers/shop/cart'
 
 import { ListVetsPage } from '../pages/vetPages/list-vets/list-vets';
 import { ChatRoomPage } from '../pages/vetPages/chat-room/chat-room';
-import { PacientsPage } from '../pages/userPages/pacients/pacients';
-import { InformPage } from '../pages/userPages/inform/inform';
-import { CartPage } from '../pages/shopPages/cart/cart';
+import { PacientsPage } from '../pages/vetPages/pacients/pacients';
+import { InformPage } from '../pages/vetPages/inform/inform';
 
 
 

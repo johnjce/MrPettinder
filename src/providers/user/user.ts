@@ -65,6 +65,17 @@ export class UserProvider {
     }).map(res => res);
   }
   
+  updateVet(dataOfVet): Observable< any > {
+    return this.http.put(this.apiurlProvider.getAPIURL()+'/vets/', dataOfVet, { 
+      headers: new HttpHeaders()
+      .set('Authorization', 'Basic ' + this.apiurlProvider.getAutorization())
+      .set('Content-Type', 'application/json')
+      .set('cache-control', 'no-cache')
+      .set('Access-Control-Allow-Credentials', 'true')
+      .set('Access-Control-Allow-Origin', 'true')
+    }).map(res => res);
+  }
+
   setUser(dataOfUser): Observable< any > {
     return this.http.post(this.apiurlProvider.getAPIURL()+'/users/', dataOfUser, { 
       headers: new HttpHeaders()

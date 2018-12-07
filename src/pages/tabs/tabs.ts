@@ -4,7 +4,7 @@ import { NavParams } from 'ionic-angular';
 import { HomePage } from '../forumPages/home/home';
 import { ProductsPage } from '../shopPages/products/products';
 import { ListVetsPage } from '../vetPages/list-vets/list-vets';
-import { PacientsPage } from '../userPages/pacients/pacients';
+import { PacientsPage } from '../vetPages/pacients/pacients';
 
 @Component({
   templateUrl: 'tabs.html'
