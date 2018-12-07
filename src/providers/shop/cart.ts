@@ -77,4 +77,19 @@ export class CartService {
     addProduct(product) {
         this.cart.push(product);
     }
+
+    removeProduc(id) {
+        const index: number = this.deepIndexOf(this.cart,{"id":id});
+        if (index !== -1) {
+            this.cart.splice(index, 1);
+        }
+    }
+
+    deepIndexOf(arr, obj) {
+        return arr.findIndex(function (cur) {
+            return Object.keys(obj).every(function (key) {
+            return obj[key] === cur[key];
+            });
+        });
+    }
 }
