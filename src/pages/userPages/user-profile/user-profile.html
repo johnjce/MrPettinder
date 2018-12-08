@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>{{user.name}}</ion-title>
   </ion-navbar>
 </ion-header>
@@ -46,7 +46,15 @@
       </ion-item>
 
     </ion-list>
-    <button color="secondary" [disabled]="!formCtrl.valid" type="submit" ion-button block>Save</button>
-    <button ion-button (click)="logout()">LogOut</button>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4>
+          <button color="secondary" [disabled]="!formCtrl.valid" type="submit" ion-button block start>Save</button>
+        </ion-col>
+        <ion-col col-4 offset-4>
+          <button ion-button (click)="logout()">LogOut</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 </ion-content>
