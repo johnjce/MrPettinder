@@ -6,36 +6,64 @@ export class CartService {
     private cart = [];
     private productList = [
         {
-            category: 'roedores',
+            category: 'Rodents',
             expanded: true,
             products: [
                 {
                     id: 1,
-                    name: "collar cobaya",
-                    price: "18.20",
-                    description: "size xS, 4cm de largo",
-                    imageURL: "https://petuluku.es/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/a/r/arnes_cobaya_rojo_1.png"
+                    name: "Harringtons Guinea Pig Optimum Nugget - 2kg",
+                    price:"4.50",
+                    description: "Harringtons Guinea Pig Optimum Nugget - 2kg",
+                    imageURL: "http://www.petshop.co.uk/SCA Product Images/Harringtons-Guinea-Pig-Optimum-Nugget-2kg_1.jpg"
                 },
                 {
                     id: 2,
-                    name: "jaula conejo",
-                    price: "39.90",
-                    description: "size L Black, orange and green",
-                    imageURL: "https://d2rp9bqx0m7ihv.cloudfront.net/media/1/photos/products/115998/82734-001536n_1_g.jpg"
+                    name: "Supreme Gerty Guinea Pig Complete Muesli - 12.5kg",
+                    price:"18.00",
+                    description: "Supreme Gerty Guinea Pig Complete Muesli - 12.5kg",
+                    imageURL: "http://www.petshop.co.uk/SCA Product Images/Supreme-Gerty-Guinea-Pig-Complete-Muesli-12-5kg_1.jpg"
                 },
                 {
                     id: 3,
-                    name: "collar cobaya",
-                    price: "18.20",
-                    description: "size xS, 4cm de largo",
-                    imageURL: "https://petuluku.es/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/a/r/arnes_cobaya_rojo_1.png"
+                    name: "Supreme Fibafirst Guinea Pig Food - 350g",
+                    price:"3.89",
+                    description: "Supreme Fibafirst Guinea Pig Food - 350g",
+                    imageURL: "http://www.petshop.co.uk/SCA Product Images/Supreme-Fibafirst-Guinea-Pig-Food-350g_1.jpg"
                 },
                 {
                     id: 4,
-                    name: "jaula conejo",
-                    price: "39.90",
-                    description: "size L Black, orange and green",
-                    imageURL: "https://d2rp9bqx0m7ihv.cloudfront.net/media/1/photos/products/115998/82734-001536n_1_g.jpg"
+                    name: "Supreme Science Selective Guinea Pig Food - 3kg",
+                    price:"10.30",
+                    description: "Supreme Science Selective Guinea Pig Food - 3kg",
+                    imageURL: "http://www.petshop.co.uk/SCA Product Images/Supreme-Science-Selective-Guinea-Pig-3kg_1.jpg"
+                },
+                {
+                    id: 5,
+                    name: "The Parkland Flatpack Run 114cm X 114cm",
+                    price:"75.76",
+                    description: "The Parkland Flatpack Run 114cm X 114cm",
+                    imageURL: "http://www.petshop.co.uk/SCA Product Images/The-Parkland-Flatpack-Run-114cm-X-114cm_19761.jpg"
+                },
+                {
+                    id: 6,
+                    name: "Flat Pack Welcome Home Hutch 91x39x51cm",
+                    price:"42.50",
+                    description: "Flat Pack Welcome Home Hutch 91x39x51cm",
+                    imageURL: "http://www.petshop.co.uk/SCA Product Images/Flat-Pack-Welcome-Home-Hutch-91x39x51cm_2871.jpg"
+                },
+                {
+                    id: 7,
+                    name: "Apex Run Tongue & Groove Shelter",
+                    price:"54.92",
+                    description: "Apex Run Tongue & Groove Shelter",
+                    imageURL: "http://www.petshop.co.uk/SCA Product Images/Apex-Run-Tongue-Groove-Shelter_APR48TB.jpg"
+                },
+                {
+                    id: 8,
+                    name: "Supreme Science Selective Guinea Pig Food - 350g",
+                    price:"2.41",
+                    description: "Supreme Science Selective Guinea Pig Food - 350g",
+                    imageURL: "http://www.petshop.co.uk/SCA Product Images/Supreme-Science-Selective-Guinea-Pig-350g_1.jpg"
                 },
             ]
         },
