@@ -1,13 +1,16 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>{{user.name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="logout()">LogOut</button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <form [formGroup]="formCtrl" (ngSubmit)="save()">
     <div>
-      <h1> Profile</h1>
+      <h1> Profile</h1>  
       <img class="profile-image" src="{{ avatar }}">
       <h4>{{user.name}}, {{user.surname}}</h4>
       <h4>{{age}} years old</h4>
@@ -52,7 +55,7 @@
           <button color="secondary" [disabled]="!formCtrl.valid" type="submit" ion-button block start>Save</button>
         </ion-col>
         <ion-col col-4 offset-4>
-          <button ion-button (click)="logout()">LogOut</button>
+          <button end ion-button (click)="logout()">Add Pet</button>
         </ion-col>
       </ion-row>
     </ion-grid>
