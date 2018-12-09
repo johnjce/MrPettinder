@@ -32,6 +32,7 @@ import { ApiurlProvider } from '../providers/apiurl/apiurl';
 import { UserProvider } from '../providers/user/user';
 import { HttpProvider } from '../providers/http/http'
 import { CartService } from '../providers/shop/cart'
+import { PayMethodPage } from '../pages/shopPages/pay-method/pay-method'
 
 import { ListVetsPage } from '../pages/vetPages/list-vets/list-vets';
 import { ChatRoomPage } from '../pages/vetPages/chat-room/chat-room';
@@ -68,7 +69,8 @@ import { IonicPageModule } from 'ionic-angular';
     LoginPage,
     ProductsPage,
     ProductDetailsPage,
-    AddNewPage
+    AddNewPage,
+    PayMethodPage
   ],
   imports: [
     BrowserModule,
@@ -98,7 +100,8 @@ import { IonicPageModule } from 'ionic-angular';
     LoginPage,
     ProductsPage,
     ProductDetailsPage,
-    AddNewPage
+    AddNewPage,
+    PayMethodPage
   ],
   providers: [
     StatusBar,

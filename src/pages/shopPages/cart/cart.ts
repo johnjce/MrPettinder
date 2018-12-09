@@ -1,7 +1,7 @@
 import { CartService } from '../../../providers/shop/cart';
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
- 
+import { NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
+import { PayMethodPage } from '../pay-method/pay-method';
 @Component({
     selector: 'page-cart',
     templateUrl: 'cart.html',
@@ -15,6 +15,7 @@ export class CartPage  {
   constructor(private cartService: CartService,
               public navCtrl:NavController, 
               public navParams:NavParams,
+              public modalCtrl: ModalController, 
               private viewCtrl:ViewController) { 
 
     this.refreshCart();
@@ -36,7 +37,7 @@ export class CartPage  {
   }
 
   dismiss() {
-    let data = { '': '' };
+    let data;
     this.viewCtrl.dismiss(data);
   }
   
@@ -48,5 +49,12 @@ export class CartPage  {
   removeProduct(id:number){
     this.cartService.removeProduc(id);
     this.refreshCart();
+  }
+
+  goToPayPage(){
+      let payModal = this.modalCtrl.create(PayMethodPage,{total: this.total});
+      payModal.onDidDismiss(data => {
+      });
+      payModal.present();
   }
 }
