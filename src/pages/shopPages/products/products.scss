@@ -1,26 +1,39 @@
 .page-products{
+
     
 }
-        .category-block {
-            margin-bottom: 4px;
-        }
-        
-        .category-banner {
-            border-left: 8px solid #353535;
-            background-color: #ea8a00;
-            height: 40px;
-            padding: 10px;
-            font-weight: 500;
-            font-size: 1.5em;
-            
-        }
+.category-block {
+    margin-bottom: 4px;
+}
+
+.category-banner {
+    border-left: 8px solid #f1eeee;
+    background-color: #fcead2;
+    height: 40px;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 1.5em;
+    
+}
 .badge {    
     border-radius: 100%;
     color: #353535;
-    background-color: #ea8a00;
+    background-color: #f1eeee;
     font-size: 0.9em;
     padding: 3px 5px;
 }
-.card-title {
+
+  .product {    
+    height: 100%;
+    background-color: #ffffff;
+    margin-top: 5px;
+    padding:5%;
+}
+
+.productHeader h2 {
     font-size: 0.95em;  
 }
+.slide-image{
+    height: 250px !important;
+    width: 100%;
+    } 

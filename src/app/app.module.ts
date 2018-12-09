@@ -10,8 +10,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { UserProfilePage } from '../pages/userPages/user-profile/user-profile';
 import { AdminProfilePage } from '../pages/userPages/admin-profile/admin-profile';
-import { DashboardPage } from '../pages/userPages/dashboard/dashboard';
-import { SettingsPage } from '../pages/userPages/settings/settings';
 import { LoginPage } from '../pages/userPages/login/login';
 import { VetProfilePage } from '../pages/userPages/vet-profile/vet-profile';
 import { YourTimePage } from '../pages/userPages/your-time/your-time';
@@ -67,8 +65,6 @@ import { IonicPageModule } from 'ionic-angular';
     PacientsPage,
     InformPage,
     CartPage,
-    DashboardPage,
-    SettingsPage,
     LoginPage,
     ProductsPage,
     ProductDetailsPage,
@@ -99,8 +95,6 @@ import { IonicPageModule } from 'ionic-angular';
     PacientsPage,
     InformPage,
     CartPage,
-    DashboardPage,
-    SettingsPage,
     LoginPage,
     ProductsPage,
     ProductDetailsPage,

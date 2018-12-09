@@ -11,36 +11,48 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
- 
+
 <ion-content>
   <div *ngFor="let cat of items" class="category-block">
- 
+
     <ion-row no-padding class="category-banner">
       <ion-col text-left button tappable (click)="cat.expanded = !cat.expanded" align-self-center>
         {{ cat.category }}
       </ion-col>
     </ion-row>
- 
-    <ion-slides slidesPerView = "1.6" spaceBetween = "10" centeredSlides = "true">
+
+    <ion-slides 
+      slidesPerView="1.6" 
+      spaceBetween="10" 
+      centeredSlides="true" 
+      loop="true"
+      autoplay="5000">
       <ion-slide *ngFor="let product of cat.products">
-        <div *ngIf="cat.expanded">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>
-                {{ product.name }} - €{{ product.price }}
-              </ion-card-title>
-              <ion-card-content>
-                <img src="{{ product.imageURL }}">
-                <ion-buttons>
-                  <button ion-button expand="full" (click)="readMore(product)">Read +</button>
-                  <button ion-button expand="full" (click)="addToCart(product)">+ Cart</button>
-                </ion-buttons>
-              </ion-card-content>
-            </ion-card-header>
-          </ion-card>
+        <div *ngIf="cat.expanded" class="product">
+          <div class="productHeader">
+            <h2> {{ product.name.substr(0, 18) + '...' }} </h2>
+          </div>
+          <div class="productContent">
+            <ion-thumbnail item-left>
+              <img [src]="product.imageURL" class="slide-image"/>
+            </ion-thumbnail>
+            <p>
+              <span [innerHTML]="product.description.substr(0, 25) + '...'"></span>
+              <br />
+              <b>
+                <span [innerHTML]="product.price"></span>€
+              </b>
+            </p>
+          </div>
+          <div class="productFooter">
+            <ion-buttons>
+              <button ion-button expand="full" (click)="readMore(product)">Read +</button>
+              <button ion-button expand="full" (click)="addToCart(product)">+ Cart</button>
+            </ion-buttons>
+          </div>
         </div>
       </ion-slide>
     </ion-slides>
- 
+
   </div>
 </ion-content>
