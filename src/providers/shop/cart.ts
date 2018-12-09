@@ -84,10 +84,38 @@ export class CartService {
             products: [
                 {
                     id: 10,
-                    name: "TecTake game tree",
-                    price: "110.60",
-                    description: "With this extravagant TecTake game tree, the kittens of the house can enjoy themselves as dwarfs. Adventures and fun without limits thanks to its multiple levels that offer tubes, camitas, platforms to make you curious, etc.",
-                    imageURL: "https://cdn.tectake.es/media/catalog/product/cache/1/small_image/1472x/0dc2d03fe217f8c83829496872af24a0/4/0/402742-4.jpg"
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 15,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 16,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 17,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 18,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
                 }
             ]
         },
@@ -96,10 +124,38 @@ export class CartService {
             products: [
                 {
                     id: 11,
-                    name: "TecTake game tree",
-                    price: "110.60",
-                    description: "With this extravagant TecTake game tree, the kittens of the house can enjoy themselves as dwarfs. Adventures and fun without limits thanks to its multiple levels that offer tubes, camitas, platforms to make you curious, etc.",
-                    imageURL: "https://cdn.tectake.es/media/catalog/product/cache/1/small_image/1472x/0dc2d03fe217f8c83829496872af24a0/4/0/402742-4.jpg"
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 19,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 20,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 21,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 22,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
                 }
             ]
         },
@@ -108,10 +164,38 @@ export class CartService {
             products: [
                 {
                     id: 12,
-                    name: "TecTake game tree",
-                    price: "110.60",
-                    description: "With this extravagant TecTake game tree, the kittens of the house can enjoy themselves as dwarfs. Adventures and fun without limits thanks to its multiple levels that offer tubes, camitas, platforms to make you curious, etc.",
-                    imageURL: "https://cdn.tectake.es/media/catalog/product/cache/1/small_image/1472x/0dc2d03fe217f8c83829496872af24a0/4/0/402742-4.jpg"
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 23,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 24,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 25,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 26,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
                 }
             ]
         },
@@ -120,10 +204,38 @@ export class CartService {
             products: [
                 {
                     id: 13,
-                    name: "TecTake game tree",
-                    price: "110.60",
-                    description: "With this extravagant TecTake game tree, the kittens of the house can enjoy themselves as dwarfs. Adventures and fun without limits thanks to its multiple levels that offer tubes, camitas, platforms to make you curious, etc.",
-                    imageURL: "https://cdn.tectake.es/media/catalog/product/cache/1/small_image/1472x/0dc2d03fe217f8c83829496872af24a0/4/0/402742-4.jpg"
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 27,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 28,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 29,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 30,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
                 }
             ]
         },
@@ -132,10 +244,38 @@ export class CartService {
             products: [
                 {
                     id: 14,
-                    name: "TecTake game tree",
-                    price: "110.60",
-                    description: "With this extravagant TecTake game tree, the kittens of the house can enjoy themselves as dwarfs. Adventures and fun without limits thanks to its multiple levels that offer tubes, camitas, platforms to make you curious, etc.",
-                    imageURL: "https://cdn.tectake.es/media/catalog/product/cache/1/small_image/1472x/0dc2d03fe217f8c83829496872af24a0/4/0/402742-4.jpg"
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 31,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 32,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 33,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
+                },
+                {
+                    id: 34,
+                    name: "Product",
+                    price: "0",
+                    description: "This is only a test product",
+                    imageURL: "../../assets/imgs/logo.png"
                 }
             ]
         }

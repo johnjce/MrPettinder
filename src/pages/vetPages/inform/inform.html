@@ -19,10 +19,13 @@
     <div class="col">Diagnostic</div>
   </div>
   <div class="row">
-    <div class="col Diagnostic">The animal has allergic dermatitis. Is recommended not letting him bite or scratch the affected zone. To treat this, make him eat 1 pill of Apoquel 5,4 daily.</div>
+    <div [innerHtml]="inform"></div>
+    <ion-textarea name="diagnostic" [(ngModel)]="diagnostic">  </ion-textarea>
   </div>
   <div class="spaceBetween">
-    <button color="secondary"ion-button block (click)="goToChatRoom()">Chat</button>
+    
+    <button color="primary" ion-button block (click)="saveInform()">Save</button>
+    <button color="secondary" ion-button block (click)="goToChatRoom()">Chat</button>
   </div>
   
 
