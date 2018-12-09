@@ -12,8 +12,8 @@ import { User } from '../../../models/user';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  username:string='user';
-  password:string='password';
+  username:string="";
+  password:string="";
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public http: HttpClient, 

@@ -29,14 +29,14 @@
       <ion-slide *ngFor="let product of cat.products">
         <div *ngIf="cat.expanded" class="product">
           <div class="productHeader">
-            <h2> {{ product.name.substr(0, 18) + '...' }} </h2>
+            <h2> {{ product.name.substr(0, 18) }} </h2>
           </div>
           <div class="productContent">
             <ion-thumbnail item-left>
               <img [src]="product.imageURL" class="slide-image"/>
             </ion-thumbnail>
             <p>
-              <span [innerHTML]="product.description.substr(0, 25) + '...'"></span>
+              <span [innerHTML]="product.description.substr(0, 25)"></span>
               <br />
               <b>
                 <span [innerHTML]="product.price"></span>€

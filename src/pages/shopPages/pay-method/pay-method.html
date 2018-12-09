@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>payMethod</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>Paypal {{total}}€</ion-item>
+    <ion-item>Credit Cart {{total}}€</ion-item>
+    <ion-item>Transfer(+2€ for bank) {{total+2}}€</ion-item>
+  </ion-list>
+</ion-content>
