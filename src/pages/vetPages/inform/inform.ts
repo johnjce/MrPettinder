@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { ChatRoomPage } from '../../vetPages/chat-room/chat-room';
 import { Friend } from '../../../models/user';
+import { MessageMocks } from '../../../mocks/messageMocks';
 
 @Component({
   selector: 'page-inform',
@@ -12,8 +13,11 @@ export class InformPage {
   owner;
   pet;
   user: Friend;
+  inform: any;
+  diagnostic: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public mocks: MessageMocks) {
+    this.getInform();
   }
   
   ionViewDidLoad() {
@@ -37,5 +41,14 @@ export class InformPage {
       console.error(data);
     });
     chatModal.present();
+  }
+
+  saveInform(){
+    this.mocks.informSave(this.diagnostic);
+    console.log(this.diagnostic);
+    return true;
+  }
+  getInform(){
+    this.inform = this.mocks.getInform();
   }
 }

@@ -4,6 +4,7 @@ import { Message } from '../models/message';
 @Injectable()
 export class MessageMocks {
   public items: Message[] = [];
+  diagnostic: any = "The animal has allergic dermatitis. Is recommended not letting him bite or scratch the affected zone. To treat this, make him eat 1 pill of Apoquel 5,4 daily.";
 
   constructor() {
     let items = [
@@ -106,5 +107,12 @@ export class MessageMocks {
 
   add(item: Message) {
     this.items.push(item);
+  }
+
+  informSave(diagnostic){
+    this.diagnostic += '<br/>' + diagnostic;
+  }
+  getInform(){
+    return this.diagnostic;
   }
 }
