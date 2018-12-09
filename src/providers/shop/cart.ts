@@ -68,10 +68,10 @@ export class CartService {
             ]
         },
         {
-            category: 'perros',
+            category: 'Dogs',
             products: [
                 {
-                    id: 5,
+                    id: 9,
                     name: "huesos de jamon",
                     price: "29.00",
                     description: "40, size middle",
@@ -80,10 +80,58 @@ export class CartService {
             ]
         },
         {
-            category: 'gatos',
+            category: 'Cats',
             products: [
                 {
-                    id: 6,
+                    id: 10,
+                    name: "TecTake game tree",
+                    price: "110.60",
+                    description: "With this extravagant TecTake game tree, the kittens of the house can enjoy themselves as dwarfs. Adventures and fun without limits thanks to its multiple levels that offer tubes, camitas, platforms to make you curious, etc.",
+                    imageURL: "https://cdn.tectake.es/media/catalog/product/cache/1/small_image/1472x/0dc2d03fe217f8c83829496872af24a0/4/0/402742-4.jpg"
+                }
+            ]
+        },
+        {
+            category: 'Birds',
+            products: [
+                {
+                    id: 11,
+                    name: "TecTake game tree",
+                    price: "110.60",
+                    description: "With this extravagant TecTake game tree, the kittens of the house can enjoy themselves as dwarfs. Adventures and fun without limits thanks to its multiple levels that offer tubes, camitas, platforms to make you curious, etc.",
+                    imageURL: "https://cdn.tectake.es/media/catalog/product/cache/1/small_image/1472x/0dc2d03fe217f8c83829496872af24a0/4/0/402742-4.jpg"
+                }
+            ]
+        },
+        {
+            category: 'Fish',
+            products: [
+                {
+                    id: 12,
+                    name: "TecTake game tree",
+                    price: "110.60",
+                    description: "With this extravagant TecTake game tree, the kittens of the house can enjoy themselves as dwarfs. Adventures and fun without limits thanks to its multiple levels that offer tubes, camitas, platforms to make you curious, etc.",
+                    imageURL: "https://cdn.tectake.es/media/catalog/product/cache/1/small_image/1472x/0dc2d03fe217f8c83829496872af24a0/4/0/402742-4.jpg"
+                }
+            ]
+        },
+        {
+            category: 'Reptiles',
+            products: [
+                {
+                    id: 13,
+                    name: "TecTake game tree",
+                    price: "110.60",
+                    description: "With this extravagant TecTake game tree, the kittens of the house can enjoy themselves as dwarfs. Adventures and fun without limits thanks to its multiple levels that offer tubes, camitas, platforms to make you curious, etc.",
+                    imageURL: "https://cdn.tectake.es/media/catalog/product/cache/1/small_image/1472x/0dc2d03fe217f8c83829496872af24a0/4/0/402742-4.jpg"
+                }
+            ]
+        },
+        {
+            category: 'Rabbits',
+            products: [
+                {
+                    id: 14,
                     name: "TecTake game tree",
                     price: "110.60",
                     description: "With this extravagant TecTake game tree, the kittens of the house can enjoy themselves as dwarfs. Adventures and fun without limits thanks to its multiple levels that offer tubes, camitas, platforms to make you curious, etc.",
