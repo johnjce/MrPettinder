@@ -11,22 +11,27 @@
     <div class="col">Pet Owner</div>
     <div class="col">Pet</div>
   </div>
+
   <div class="row">
     <div class="col">{{ owner }}</div>
     <div class="col">{{ pet }}</div>
   </div>
+
   <div class="row header">
     <div class="col">Diagnostic</div>
   </div>
   <div class="row">
-    <div [innerHtml]="inform"></div>
-    <ion-textarea name="diagnostic" [(ngModel)]="diagnostic">  </ion-textarea>
+    <div class="col">
+      <div [innerHtml]="inform"></div>
+      <ion-list>
+        <ion-item>
+          <ion-textarea name="diagnostic" [(ngModel)]="diagnostic" rows="4" maxLength="500"> </ion-textarea>
+        </ion-item>
+      </ion-list>
+    </div>
   </div>
   <div class="spaceBetween">
-    
     <button color="primary" ion-button block (click)="saveInform()">Save</button>
     <button color="secondary" ion-button block (click)="goToChatRoom()">Chat</button>
   </div>
-  
-
 </ion-content>

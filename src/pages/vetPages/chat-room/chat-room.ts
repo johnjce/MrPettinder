@@ -65,7 +65,7 @@ export class ChatRoomPage {
   }
 
   dismiss() {
-    let data = { '': '' };
+    let data;
     this.viewCtrl.dismiss(data);
   }
   

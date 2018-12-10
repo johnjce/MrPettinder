@@ -41,7 +41,7 @@ export class YourTimePage {
     toast.present();
   }
   dismiss() {
-    let data = { '': '' };
+    let data;
     this.viewCtrl.dismiss(data);
   }
 

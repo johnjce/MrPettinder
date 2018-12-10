@@ -110,7 +110,7 @@ export class MessageMocks {
   }
 
   informSave(diagnostic){
-    this.diagnostic += '<br/>' + diagnostic;
+    this.diagnostic += '<br/><br/>' + diagnostic;
   }
   getInform(){
     return this.diagnostic;

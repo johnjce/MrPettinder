@@ -15,6 +15,10 @@ export class UserProvider {
   
   constructor(public http: HttpClient, private apiurlProvider: ApiurlProvider) { }
   
+  getPetImage(): Observable< any > {
+    return this.http.get("https://loremflickr.com/420/420/dogs,pets/all").map(res => res);
+  }
+
   getTimeAvailable(): any {
     return this.timeAvailable;
   }

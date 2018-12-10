@@ -22,6 +22,8 @@ export class UserProfilePage {
   isLogged:boolean = false;
   avatar: string;
   petName: string;
+  pets: any[];
+  petPhoto: any;
 
   constructor(formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams, private userProvider: UserProvider ) {
     this.id = navParams.data;
@@ -33,7 +35,7 @@ export class UserProfilePage {
       name: ['', Validators.required],
       surname: [''],
       email: [''],
-      dateOfBirth:[''],
+      dateOfBirthText:[''],
       username: [''],
       password: [''],
       petName: ['']
@@ -44,12 +46,16 @@ export class UserProfilePage {
     return this.userProvider.getLoggedUser().subscribe(
       (data) => {
         this.user = data.profile;
+        this.pets = data.pets;
         this.username = data.username;
         this.password = data.password;
-        this.petName = data.petName;
+        if(this.pets){
+          this.petName = data.pets[0].name;
+        }else{
+          this.petName = "no pet";
+        }
         this.dateOfBirth = new Date(data.profile.dateOfBirth);
         this.dateOfBirthText = this.dateOfBirth.toISOString();
-        console.log(this.dateOfBirth.getTime());
         this.age = this.getAge(this.dateOfBirthText);
         this.avatar = "https://loremflickr.com/320/240/girl/all";
       },
@@ -60,16 +66,21 @@ export class UserProfilePage {
   }
 
   save(){
+    this.getPetPhoto();
     let dataOfUser = {
       'username':this.formCtrl.value.username,
-      'petName':this.formCtrl.value.petName,
       'password':this.formCtrl.value.password,
-      'profile': {
+      'profile': [{
         'name' : this.formCtrl.value.name,
         'surname' : this.formCtrl.value.surname,
         'email' : this.formCtrl.value.email,
-        'dateOfBirth' : this.formCtrl.value.dateOfBirth
-      }
+        'dateOfBirth' : this.formCtrl.value.dateOfBirthText
+      }],
+      "roles":[{"roleName":"ROLE_USER"}],
+      'pets':[{
+        name:this.formCtrl.value.petName,
+        photo_ulr:this.petPhoto
+      }]
     };
 
     if(this.isLogged){
@@ -85,6 +96,12 @@ export class UserProfilePage {
         }
       );
     }
+  }
+
+  private getPetPhoto() {
+    this.userProvider.getPetImage().subscribe((data) => {
+      this.petPhoto = data;
+    });
   }
 
   getAge(dateOfBirth){

@@ -40,7 +40,6 @@ export class ListVetsPage {
   presentTimeModal() {
     let timeModal = this.modalCtrl.create(YourTimePage, { time:this.timeAvailable });
     timeModal.onDidDismiss(data => {
-      console.error(data);
     });
     timeModal.present();
   }
@@ -51,7 +50,7 @@ export class ListVetsPage {
       (data) => {
         let i = 0;
         data.forEach(vet => {
-          let vete = {"username":vet.username,"name":vet.profile.name,"avatar": "https://loremflickr.com/g/320/240/men,girl/all?random="+i,"expert":"Exotic and common pets"};
+          let vete = {"username":vet.username,"name":vet.profile.name,"avatar": "https://loremflickr.com/g/320/240/men,girl/all?random="+i,"expert":vet.specialty};
           this.veterinariansChat.push(vete);
           i = i+1;
         });

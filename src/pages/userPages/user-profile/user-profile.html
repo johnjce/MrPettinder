@@ -2,7 +2,9 @@
   <ion-navbar color="primary">
     <ion-title>{{user.name}}</ion-title>
     <ion-buttons end>
-      <button ion-button (click)="logout()">LogOut</button>
+      <button ion-button (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -10,7 +12,7 @@
 <ion-content padding>
   <form [formGroup]="formCtrl" (ngSubmit)="save()">
     <div>
-      <h1> Profile</h1>  
+      <h1> Profile</h1>
       <img class="profile-image" src="{{ avatar }}">
       <h4>{{user.name}}, {{user.surname}}</h4>
       <h4>{{age}} years old</h4>
@@ -34,6 +36,13 @@
         <ion-label floating>Surname</ion-label>
         <ion-input type="text" [(ngModel)]="user.surname" formControlName="surname" required></ion-input>
       </ion-item>
+      <ion-item *ngFor="let pestName of pets">
+        <ion-avatar item-start>
+          <img [src]="pestName.photo_url">
+        </ion-avatar>
+        <h2>{{pestName.name}}</h2>
+        <p>*-*</p>
+      </ion-item>
       <ion-item>
         <ion-label floating>Pet name</ion-label>
         <ion-input type="text" [(ngModel)]="petName" formControlName="petName" required></ion-input>
@@ -44,18 +53,14 @@
       </ion-item>
       <ion-item>
         <ion-label>Birth Date</ion-label>
-        <ion-datetime required formControlName="dateOfBirth"  pickerFormat="DD MMM YYYY"
-          [(ngModel)]="dateOfBirth"></ion-datetime>
-      </ion-item>
+        <ion-datetime formControlName="dateOfBirthText" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY" [(ngModel)]="dateOfBirthText"></ion-datetime>
+             </ion-item>
 
     </ion-list>
     <ion-grid>
       <ion-row>
         <ion-col col-4>
           <button color="secondary" [disabled]="!formCtrl.valid" type="submit" ion-button block start>Save</button>
-        </ion-col>
-        <ion-col col-4 offset-4>
-          <button end ion-button (click)="logout()">Add Pet</button>
         </ion-col>
       </ion-row>
     </ion-grid>

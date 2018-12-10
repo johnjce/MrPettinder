@@ -54,7 +54,6 @@ export class PacientsPage {
   getState():any{
     this.userProvider.getLoggedUser().subscribe(
       (data) => {
-        console.log(data.available);
         this.me = data;
         return data.available;
       },

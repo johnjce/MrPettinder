@@ -16,7 +16,7 @@ export class ProductDetailsPage {
   }
   
   dismiss() {
-    let data = { '': '' };
+    let data;
     this.viewCtrl.dismiss(data);
   }
   

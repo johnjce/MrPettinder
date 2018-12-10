@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, ModalController, Content } from 'ionic-angular';
 import { ChatRoomPage } from '../../vetPages/chat-room/chat-room';
 import { Friend } from '../../../models/user';
 import { MessageMocks } from '../../../mocks/messageMocks';
+import {  } from 'ionic-angular';
 
 @Component({
   selector: 'page-inform',
@@ -10,19 +11,23 @@ import { MessageMocks } from '../../../mocks/messageMocks';
   
 })
 export class InformPage {
+  @ViewChild(Content) content: Content;
   owner;
   pet;
   user: Friend;
   inform: any;
   diagnostic: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public mocks: MessageMocks) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public modalCtrl: ModalController, 
+    public mocks: MessageMocks) {
     this.getInform();
   }
   
   ionViewDidLoad() {
-    this.owner=this.navParams.data.username;
-    this.pet=this.navParams.data.petName;
+    this.owner=this.navParams.data.profile.name;
+    this.pet=this.navParams.data.pets[0].name;
     let user = {
       "username": this.owner,
       "avatar": "https://loremflickr.com/320/240/girl/all",
@@ -45,10 +50,12 @@ export class InformPage {
 
   saveInform(){
     this.mocks.informSave(this.diagnostic);
-    console.log(this.diagnostic);
-    return true;
+    this.getInform();
+    this.diagnostic = "";
+    this.content.resize();
   }
   getInform(){
     this.inform = this.mocks.getInform();
   }
+
 }
