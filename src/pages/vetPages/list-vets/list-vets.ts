@@ -64,8 +64,5 @@ export class ListVetsPage {
     goToVetProfilePage(friend){
       this.navCtrl.push(VetProfilePage, friend);
     }
-    
-    goToChatRoom(friend: Friend) {
-      this.navCtrl.push(ChatRoomPage, {friend});
-    }
+
 }

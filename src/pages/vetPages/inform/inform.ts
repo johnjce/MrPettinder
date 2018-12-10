@@ -29,7 +29,7 @@ export class InformPage {
     this.owner=this.navParams.data.profile.name;
     this.pet=this.navParams.data.pets[0].name;
     let user = {
-      "username": this.owner,
+      "username": this.navParams.data.username,
       "avatar": "https://loremflickr.com/320/240/girl/all",
       "profile":this.navParams.data.profile,
       "available":false

@@ -44,6 +44,9 @@ export class ChatRoomPage {
       }
       this.myProfile = <User>prof;
     });
+
+    console.log("yo:",this.myProfile);
+    console.log("amigo:",this.friend);
   }
 
   scrollToBottom() {
