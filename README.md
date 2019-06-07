@@ -26,7 +26,7 @@ Install the dependencies and devDependencies and start the server.
 para bajar la app:
 en consola,
 ```sh
-git clone https://github.com/johnjce/appV9.git
+git clone https://github.com/johnjce/MrPettinder.git
 ```
 
 Para instalar ionic:
@@ -88,8 +88,8 @@ Pending
 
 [//]: # (urls)
 
-   [dill]: <https://github.com/johnjce/appV9>
-   [git-repo-url]: <https://github.com/johnjce/appV9.git>
+   [dill]: <https://github.com/johnjce/MrPettinder>
+   [git-repo-url]: <https://github.com/johnjce/MrPettinder.git>
    [Ace Editor]: <http://ace.ajax.org>
    [node.js]: <http://nodejs.org>
    [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
